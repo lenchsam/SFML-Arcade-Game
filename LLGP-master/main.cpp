@@ -5,17 +5,13 @@
 */
 int WinMain()
 {
-    sf::RenderWindow window(sf::VideoMode({ 400, 400 }), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    sf::RenderWindow window(sf::VideoMode({ 800, 800 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close);
 
     //load texture
     sf::Texture texture("assets/sprites/PLAYER.png", false, sf::IntRect({ 0, 0 }, { 25, 25 }));
     sf::Sprite sprite(texture);
     sprite.setScale({ 5.0f, 5.0f }); // absolute scale factor
     sprite.setPosition({ 10.f, 50.f }); // absolute position
-
-
 
     while (window.isOpen())
     {
