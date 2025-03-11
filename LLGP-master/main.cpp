@@ -9,6 +9,14 @@ int WinMain()
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
+    //load texture
+    sf::Texture texture("assets/sprites/PLAYER.png", false, sf::IntRect({ 0, 0 }, { 25, 25 }));
+    sf::Sprite sprite(texture);
+    sprite.setScale({ 5.0f, 5.0f }); // absolute scale factor
+    sprite.setPosition({ 10.f, 50.f }); // absolute position
+
+
+
     while (window.isOpen())
     {
         // Event polling section of code - this must be done in the thread which created the window
@@ -20,7 +28,7 @@ int WinMain()
         }
 
         window.clear();
-        window.draw(shape);
+        window.draw(sprite);
         window.display();
     }
 }
