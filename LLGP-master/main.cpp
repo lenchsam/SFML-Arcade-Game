@@ -9,9 +9,14 @@ int WinMain()
 
     //load texture
     sf::Texture texture("assets/sprites/PLAYER.png", false, sf::IntRect({ 0, 0 }, { 25, 25 }));
-    sf::Sprite sprite(texture);
-    sprite.setScale({ 5.0f, 5.0f }); // absolute scale factor
-    sprite.setPosition({ 10.f, 50.f }); // absolute position
+    sf::Sprite player(texture);
+    player.setScale({ 5.0f, 5.0f }); // absolute scale factor
+    player.setPosition({ 10.f, 50.f }); // absolute position
+
+    std::chrono::steady_clock::time_point lastTime = std::chrono::steady_clock::now();
+    float deltaTime = 0.f;
+    float timeSincePhsicsStep = 0.0f;
+    const int FIXEDFRAMERATE(50);
 
     while (window.isOpen())
     {
@@ -23,8 +28,20 @@ int WinMain()
                 window.close();
         }
 
+        std::chrono::steady_clock::time_point now = std::chrono::steady_clock::now();
+        deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(now - lastTime).count() / 1000000.f;
+        lastTime = now;
+
+        timeSincePhsicsStep += deltaTime;
+        while (timeSincePhsicsStep > FIXEDFRAMERATE) {
+            //step the physics
+            //collect collision info
+            //dispatch collisions
+            timeSincePhsicsStep -= FIXEDFRAMERATE;
+        }
+        
         window.clear();
-        window.draw(sprite);
+        window.draw(player);
         window.display();
     }
 }
