@@ -39,7 +39,7 @@ int WinMain()
             //dispatch collisions
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }
-        
+
         window.clear();
         window.draw(player);
         window.display();
