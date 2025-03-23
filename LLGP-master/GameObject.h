@@ -1,32 +1,38 @@
 #pragma once
 #include "Object.h"
 #include "Component.h"
-class GameObject : public Object
-{
-public: 
-	GameObject();
-	GameObject(const GameObject&) = default;
-	Transform* transform;
-	inline void SetName(std::string newName) { m_Name = newName; }
-	inline std::string GetName() { return m_Name; }
+#include "ComponentConcepts.h"
+#include "Transform.h"
 
-	void SetActive(bool newActive);
-	inline bool GetActive() { return m_Active; }
+namespace LLGP {
+	class GameObject : public Object
+	{
+	public:
+		GameObject();
+		GameObject(const GameObject&) = default;
+		Transform* transform;
+		inline void SetName(std::string newName) { m_Name = newName; }
+		inline std::string GetName() { return m_Name; }
 
-	inline void SetTag(std::string newTag) { m_Tag = newTag; }
-	inline bool CompareTag(std::string comp) { return m_Tag == comp; }
+		void SetActive(bool newActive);
+		inline bool GetActive() { return m_Active; }
 
-	template<class T> requires isComponent<T> T* GetComponent();
-	template<class T> requires isComponent<T> T* AddComponent();
-	template<class T> requires isComponent<T> bool RemoveComponent(T* comp);
+		inline void SetTag(std::string newTag) { m_Tag = newTag; }
+		inline bool CompareTag(std::string comp) { return m_Tag == comp; }
 
-private:
-	std::string m_Name;
-	bool m_Active;
-	std::string m_Tag;
-	std::vector<std::unique_ptr<Component>> m_Components;
-public:
-	inline bool operator==(const GameObject& other) { return this->uuid == other.uuid; }
-	inline bool operator!=(const GameObject& other) { return !(*this == other); }
-};
+		template<class T> requires isComponent<T> T* GetComponent();
+		template<class T> requires isComponent<T> T* AddComponent();
+		template<class T> requires isComponent<T> bool RemoveComponent(T* comp);
+
+	private:
+		std::string m_Name;
+		bool m_Active;
+		std::string m_Tag;
+		std::vector<std::unique_ptr<Component>> m_Components;
+	public:
+		inline bool operator==(const GameObject& other) { return this->uuid == other.uuid; }
+		inline bool operator!=(const GameObject& other) { return !(*this == other); }
+	};
+}
+
 
