@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include "PlayerCharacter.h"
+#include "SpriteRenderer.h"
 
 namespace LLGP {
 	GameObject::GameObject() {
@@ -28,5 +29,6 @@ namespace LLGP {
 	}
 
 	template PlayerCharacter* GameObject::AddComponent<PlayerCharacter>();
+	template SpriteRenderer* GameObject::AddComponent<SpriteRenderer>();
 }
 

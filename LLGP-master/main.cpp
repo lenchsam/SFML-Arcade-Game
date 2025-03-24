@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "GameObject.h"
 #include "PlayerCharacter.h"
+#include "SpriteRenderer.h"
 
 /*
     This version of the SFML "hello world" is statically linked, you may wish to try the dynamically linked version as well.
@@ -18,7 +19,7 @@ int WinMain()
     // initialise player gameobject
     // for some reason causes issues
     LLGP::GameObject* player = new LLGP::GameObject();
-    // add sprite renderer component to player
+    LLGP::SpriteRenderer* playerSpriteRenderer = player->AddComponent<LLGP::SpriteRenderer>();
     // load texture using player sprite renderer
     LLGP::PlayerCharacter* playerInput = player->AddComponent<LLGP::PlayerCharacter>();
 
@@ -35,6 +36,8 @@ int WinMain()
         {
             if (event->is<sf::Event::Closed>())
                 window.close();
+
+            //event...
         }
 
         std::chrono::steady_clock::time_point now = std::chrono::steady_clock::now();
