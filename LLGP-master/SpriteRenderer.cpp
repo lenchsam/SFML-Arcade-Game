@@ -9,10 +9,17 @@ namespace LLGP {
 		m_sprite = sprite;
 	}
 
-	void SpriteRenderer::LoadTexture(std::string filePath) {
-		if (m_texture.loadFromFile(filePath))
-		{
-			//m_Sprite
+	void SpriteRenderer::LoadTexture(const std::filesystem::path& filename) {
+		if (!m_texture.loadFromFile(filename)) { 
+			std::cout << "no texture found" << std::endl;
+			return;
 		}
+		m_sprite.setTexture(m_texture);
+		m_sprite.setScale({ 5.0f, 5.0f }); // absolute scale factor
+		m_sprite.setPosition({ 10.f, 50.f }); // absolute position
+	}
+	sf::Sprite SpriteRenderer::GetSprite() {
+		//std::cout << "returned sprite" << std::endl;
+		return m_sprite;
 	}
 }

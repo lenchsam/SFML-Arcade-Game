@@ -6,21 +6,26 @@
 /*
     This version of the SFML "hello world" is statically linked, you may wish to try the dynamically linked version as well.
 */
+#ifdef _DEBUG
+int main()
+#else
 int WinMain()
+#endif
 {
     sf::RenderWindow window(sf::VideoMode({ 800, 800 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close);
 
     //load texture
-    sf::Texture texture("assets/sprites/PLAYER.png", false, sf::IntRect({ 0, 0 }, { 25, 25 }));
-    sf::Sprite player1(texture);
-    player1.setScale({ 5.0f, 5.0f }); // absolute scale factor
-    player1.setPosition({ 10.f, 50.f }); // absolute position
+    //sf::Texture texture("assets/sprites/PLAYER.png", false, sf::IntRect({ 0, 0 }, { 25, 25 }));
+    //sf::Sprite player1(texture);
+    //player1.setScale({ 5.0f, 5.0f }); // absolute scale factor
+    //player1.setPosition({ 10.f, 50.f }); // absolute position
 
     // initialise player gameobject
     // for some reason causes issues
     LLGP::GameObject* player = new LLGP::GameObject();
     LLGP::SpriteRenderer* playerSpriteRenderer = player->AddComponent<LLGP::SpriteRenderer>();
     // load texture using player sprite renderer
+    playerSpriteRenderer->LoadTexture("assets/sprites/PLAYER.png");
     LLGP::PlayerCharacter* playerInput = player->AddComponent<LLGP::PlayerCharacter>();
 
     std::chrono::steady_clock::time_point lastTime = std::chrono::steady_clock::now();
@@ -55,7 +60,7 @@ int WinMain()
         
 
         window.clear();
-        window.draw(player1);
+        window.draw(playerSpriteRenderer->GetSprite());
         window.display();
     }
 }
