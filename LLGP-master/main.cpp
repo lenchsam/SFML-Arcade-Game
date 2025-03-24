@@ -15,10 +15,10 @@ int WinMain()
     sf::RenderWindow window(sf::VideoMode({ 800, 800 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close);
 
     //load texture
-    //sf::Texture texture("assets/sprites/PLAYER.png", false, sf::IntRect({ 0, 0 }, { 25, 25 }));
-    //sf::Sprite player1(texture);
-    //player1.setScale({ 5.0f, 5.0f }); // absolute scale factor
-    //player1.setPosition({ 10.f, 50.f }); // absolute position
+    sf::Texture texture("assets/sprites/PLAYER.png", false, sf::IntRect({ 0, 0 }, { 25, 25 }));
+    sf::Sprite player1(texture);
+    player1.setScale({ 5.0f, 5.0f }); // absolute scale factor
+    player1.setPosition({ 10.f, 50.f }); // absolute position
 
     // initialise player gameobject
     // for some reason causes issues
@@ -60,7 +60,8 @@ int WinMain()
         
 
         window.clear();
-        window.draw(playerSpriteRenderer->GetSprite());
+        //window.draw(playerSpriteRenderer->GetSprite());
+        window.draw(player1);
         window.display();
     }
 }
