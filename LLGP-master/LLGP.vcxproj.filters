@@ -54,6 +54,9 @@
     <ClCompile Include="Transform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerCharacter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="packages\SFML\include\SFML\Audio.hpp">
@@ -378,6 +381,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCharacter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

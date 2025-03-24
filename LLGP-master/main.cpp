@@ -1,4 +1,6 @@
 #include <SFML/Graphics.hpp>
+#include "GameObject.h"
+#include "PlayerCharacter.h"
 
 /*
     This version of the SFML "hello world" is statically linked, you may wish to try the dynamically linked version as well.
@@ -9,9 +11,16 @@ int WinMain()
 
     //load texture
     sf::Texture texture("assets/sprites/PLAYER.png", false, sf::IntRect({ 0, 0 }, { 25, 25 }));
-    sf::Sprite player(texture);
-    player.setScale({ 5.0f, 5.0f }); // absolute scale factor
-    player.setPosition({ 10.f, 50.f }); // absolute position
+    sf::Sprite player1(texture);
+    player1.setScale({ 5.0f, 5.0f }); // absolute scale factor
+    player1.setPosition({ 10.f, 50.f }); // absolute position
+
+    // initialise player gameobject
+    // for some reason causes issues
+    LLGP::GameObject* player = new LLGP::GameObject();
+    // add sprite renderer component to player
+    // load texture using player sprite renderer
+    LLGP::PlayerCharacter* playerInput = player->AddComponent<LLGP::PlayerCharacter>();
 
     std::chrono::steady_clock::time_point lastTime = std::chrono::steady_clock::now();
     float deltaTime = 0.f;
@@ -40,8 +49,10 @@ int WinMain()
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }
 
+        
+
         window.clear();
-        window.draw(player);
+        window.draw(player1);
         window.display();
     }
 }
