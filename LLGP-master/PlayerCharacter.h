@@ -7,7 +7,7 @@ namespace LLGP {
 		PlayerCharacter(GameObject* owner);
 		PlayerCharacter(const PlayerCharacter&) = default;
 
-		void Tick(float deltaTime);
+		void Input(float deltaTime);
 	private:
 		float _speed;
 	};

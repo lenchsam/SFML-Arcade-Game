@@ -7,12 +7,16 @@ namespace LLGP {
 	{
 	public:
 		SpriteRenderer(GameObject* owner);
+		virtual ~SpriteRenderer();
+		
 		void LoadTexture(std::string filename);
-		void SetSprite(sf::Sprite sprite);
-		sf::Sprite GetSprite();
+		void SetSprite(sf::Sprite* sprite);
+		sf::Sprite* GetSprite();
+		void Draw(sf::RenderWindow* window);
+
 	private:
 		sf::Texture m_texture;
-		sf::Sprite m_sprite;
+		sf::Sprite* m_sprite = nullptr;
 	};
 }
 

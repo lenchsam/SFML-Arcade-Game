@@ -7,7 +7,7 @@ namespace LLGP {
     class Component : public Object
     {
     public:
-        Component() = default;
+        Component() {}
         Component(GameObject* owner) : _GameObject(owner) {}
         virtual ~Component() {}
 

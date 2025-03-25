@@ -3,9 +3,6 @@
 #include "PlayerCharacter.h"
 #include "SpriteRenderer.h"
 
-/*
-    This version of the SFML "hello world" is statically linked, you may wish to try the dynamically linked version as well.
-*/
 #ifdef _DEBUG
 int main()
 #else
@@ -13,12 +10,6 @@ int WinMain()
 #endif
 {
     sf::RenderWindow window(sf::VideoMode({ 800, 800 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close);
-
-    //load texture
-    sf::Texture texture("assets/sprites/PLAYER.png", false, sf::IntRect({ 0, 0 }, { 25, 25 }));
-    sf::Sprite player1(texture);
-    player1.setScale({ 5.0f, 5.0f }); // absolute scale factor
-    player1.setPosition({ 10.f, 50.f }); // absolute position
 
     // initialise player gameobject
     // for some reason causes issues
@@ -42,6 +33,7 @@ int WinMain()
             if (event->is<sf::Event::Closed>())
                 window.close();
 
+            playerInput->Input(deltaTime);
             //event...
         }
 
@@ -57,11 +49,8 @@ int WinMain()
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }
 
-        
-
         window.clear();
-        //window.draw(playerSpriteRenderer->GetSprite());
-        window.draw(player1);
+        playerSpriteRenderer->Draw(&window);
         window.display();
     }
 }
