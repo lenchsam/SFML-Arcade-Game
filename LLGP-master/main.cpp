@@ -9,20 +9,18 @@ int main()
 int WinMain()
 #endif
 {
+    const int FIXEDFRAMERATE(60);
     sf::RenderWindow window(sf::VideoMode({ 800, 800 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close);
-
+    window.setFramerateLimit(FIXEDFRAMERATE);
     // initialise player gameobject
-    // for some reason causes issues
     LLGP::GameObject* player = new LLGP::GameObject();
     LLGP::SpriteRenderer* playerSpriteRenderer = player->AddComponent<LLGP::SpriteRenderer>();
-    // load texture using player sprite renderer
     playerSpriteRenderer->LoadTexture("assets/sprites/PLAYER.png");
     LLGP::PlayerCharacter* playerInput = player->AddComponent<LLGP::PlayerCharacter>();
 
     std::chrono::steady_clock::time_point lastTime = std::chrono::steady_clock::now();
     float deltaTime = 0.f;
     float timeSincePhsicsStep = 0.0f;
-    const int FIXEDFRAMERATE(50);
 
     while (window.isOpen())
     {
@@ -33,7 +31,9 @@ int WinMain()
             if (event->is<sf::Event::Closed>())
                 window.close();
 
-            playerInput->Input(deltaTime);
+            if (const sf::Event::KeyPressed * keyPress = event->getIf<sf::Event::KeyPressed> ()) {
+                playerInput->Input(deltaTime, playerSpriteRenderer);
+            }
             //event...
         }
 
@@ -41,11 +41,14 @@ int WinMain()
         deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(now - lastTime).count() / 1000000.f;
         lastTime = now;
 
+        //std::cout << deltaTime << std::endl;
+
         timeSincePhsicsStep += deltaTime;
         while (timeSincePhsicsStep > FIXEDFRAMERATE) {
             //step the physics
             //collect collision info
             //dispatch collisions
+
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }
 

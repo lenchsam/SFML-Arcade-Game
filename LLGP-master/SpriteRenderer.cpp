@@ -30,7 +30,7 @@ namespace LLGP {
 		{
 			//m_sprite->setTexture(m_texture);
 			m_sprite->setScale({ 2.0f, 2.0f }); // absolute scale factor
-			m_sprite->setPosition({ 200.f, 200.f }); // absolute position
+			m_sprite->setPosition({ 500.f, 500.f }); // absolute position
 		}
 
 	}

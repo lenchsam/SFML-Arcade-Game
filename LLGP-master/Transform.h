@@ -10,9 +10,8 @@ namespace LLGP {
 
 		void SetPosition();
 		sf::Vector2f GetPosition();
-	private:
+		void ChangePosition(sf::Vector2f distance);
 		sf::Vector2f m_Position;
-
 	};
 }
 
