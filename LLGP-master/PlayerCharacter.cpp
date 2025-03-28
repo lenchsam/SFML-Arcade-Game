@@ -15,7 +15,6 @@ namespace LLGP {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 		{
-			//-1, 0
 			_GameObject->transform->ChangePosition({-1, 0}, spriteRenderer);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
@@ -24,7 +23,6 @@ namespace LLGP {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 		{
-			//1,0 
 			_GameObject->transform->ChangePosition({ 1, 0 }, spriteRenderer);
 		}
 	}

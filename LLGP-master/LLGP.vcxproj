@@ -136,6 +136,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CircleCollider.cpp" />
+    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentConcepts.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -147,6 +149,8 @@
     <ClCompile Include="UUID.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CircleCollider.h" />
+    <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentConcepts.h" />
     <ClInclude Include="Event.h" />
