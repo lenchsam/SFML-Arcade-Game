@@ -32,16 +32,13 @@ int WinMain()
                 window.close();
 
             if (const sf::Event::KeyPressed * keyPress = event->getIf<sf::Event::KeyPressed> ()) {
-                playerInput->Input(deltaTime, playerSpriteRenderer);
+                playerInput->Input(playerSpriteRenderer);
             }
-            //event...
         }
 
         std::chrono::steady_clock::time_point now = std::chrono::steady_clock::now();
         deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(now - lastTime).count() / 1000000.f;
         lastTime = now;
-
-        //std::cout << deltaTime << std::endl;
 
         timeSincePhsicsStep += deltaTime;
         while (timeSincePhsicsStep > FIXEDFRAMERATE) {

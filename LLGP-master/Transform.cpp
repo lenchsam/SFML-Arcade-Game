@@ -14,8 +14,9 @@ namespace LLGP {
 		return m_Position;
 	}
 
-	void Transform::ChangePosition(sf::Vector2f distance) {
+	void Transform::ChangePosition(sf::Vector2f distance, SpriteRenderer* spriteRenderer) {
 		m_Position += distance;
+		spriteRenderer->GetSprite()->move(distance);
 		//std::cout << "m_Position" << std::endl;
 	}
 }
