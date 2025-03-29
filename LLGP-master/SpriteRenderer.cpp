@@ -23,7 +23,7 @@ namespace LLGP {
 			std::cout << "no texture found" << std::endl;
 			return;
 		}
-		std::cout << "texture found" << std::endl;
+		//std::cout << "texture found" << std::endl;
 
 		m_sprite = new sf::Sprite(m_texture);
 		if (m_sprite != nullptr)
@@ -45,6 +45,7 @@ namespace LLGP {
 	{
 		if (m_sprite != nullptr)
 		{
+			//std::cout << "drawing to screen" << std::endl;
 			window->draw(*m_sprite);
 		}
 	}

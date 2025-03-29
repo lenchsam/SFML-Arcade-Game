@@ -2,6 +2,7 @@
 #include "PlayerCharacter.h"
 #include "SpriteRenderer.h"
 #include "Transform.h"
+#include "Spawner.h"
 
 namespace LLGP {
 	GameObject::GameObject() {
@@ -14,7 +15,7 @@ namespace LLGP {
 		T* returnComp = nullptr;
 		for (int i = 0; i < m_Components.size(); i++) {
 
-			returnComp = static_cast<T*>(m_Components[i].get());
+			returnComp = dynamic_cast<T*>(m_Components[i].get());
 			if (returnComp != nullptr) {
 				break;
 			}
@@ -35,5 +36,6 @@ namespace LLGP {
 	template PlayerCharacter* GameObject::AddComponent<PlayerCharacter>();
 	template SpriteRenderer* GameObject::AddComponent<SpriteRenderer>();
 	template Transform* GameObject::AddComponent<Transform>();
+	template Spawner* GameObject::AddComponent<Spawner>();
 }
 

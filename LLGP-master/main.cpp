@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include "PlayerCharacter.h"
 #include "SpriteRenderer.h"
+#include "Spawner.h"
 
 #ifdef _DEBUG
 int main()
@@ -12,15 +13,23 @@ int WinMain()
     const float FIXEDFRAMERATE(0.02);
     sf::RenderWindow window(sf::VideoMode({ 800, 800 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(FIXEDFRAMERATE);
+
+
     // initialise player gameobject
     LLGP::GameObject* player = new LLGP::GameObject();
     LLGP::SpriteRenderer* playerSpriteRenderer = player->AddComponent<LLGP::SpriteRenderer>();
     playerSpriteRenderer->LoadTexture("assets/sprites/PLAYER.png");
     LLGP::PlayerCharacter* playerInput = player->AddComponent<LLGP::PlayerCharacter>();
 
+
+    //initialise the spawner gameobject
+    LLGP::GameObject* spawner = new LLGP::GameObject();
+    LLGP::Spawner* spawnerComponent = spawner->AddComponent<LLGP::Spawner>();
+
     std::chrono::steady_clock::time_point lastTime = std::chrono::steady_clock::now();
     float deltaTime = 0.f;
     float timeSincePhsicsStep = 0.0f;
+
 
     while (window.isOpen())
     {
@@ -52,8 +61,16 @@ int WinMain()
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }
 
+
         window.clear();
+
+        //draw player
         playerSpriteRenderer->Draw(&window);
+        
+        //spawn enemies
+        spawnerComponent->Spawn(&window);
+        spawnerComponent->DrawAllEnemies(&window);
+
         window.display();
     }
 }

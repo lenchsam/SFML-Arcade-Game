@@ -17,6 +17,7 @@ namespace LLGP {
 	private:
 		sf::Texture m_texture;
 		sf::Sprite* m_sprite = nullptr;
+		GameObject* _GameObject;
 	};
 }
 

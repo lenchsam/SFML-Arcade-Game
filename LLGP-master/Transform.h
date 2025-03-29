@@ -13,6 +13,8 @@ namespace LLGP {
 		sf::Vector2f GetPosition();
 		void ChangePosition(sf::Vector2f distance, SpriteRenderer* spriteRenderer);
 		void RotateTowards(sf::RenderWindow* window, SpriteRenderer* spriteRenderer);
+
+	private:
 		sf::Vector2f m_Position;
 		GameObject* _GameObject;
 	};
