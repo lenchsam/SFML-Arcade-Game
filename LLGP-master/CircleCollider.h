@@ -1,7 +1,9 @@
 #pragma once
 #include "Collider.h"
-class CircleCollider : public Collider
-{
+namespace LLGP {
+	class CircleCollider : public Collider
+	{
 
-};
+	};
+}
 

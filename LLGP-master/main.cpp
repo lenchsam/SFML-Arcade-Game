@@ -9,7 +9,7 @@ int main()
 int WinMain()
 #endif
 {
-    const int FIXEDFRAMERATE(60);
+    const float FIXEDFRAMERATE(0.02);
     sf::RenderWindow window(sf::VideoMode({ 800, 800 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(FIXEDFRAMERATE);
     // initialise player gameobject
@@ -32,7 +32,7 @@ int WinMain()
                 window.close();
 
             if (const sf::Event::KeyPressed * keyPress = event->getIf<sf::Event::KeyPressed> ()) {
-                playerInput->Input(playerSpriteRenderer);
+                //playerInput->Input(playerSpriteRenderer);
             }
         }
 
@@ -41,10 +41,13 @@ int WinMain()
         lastTime = now;
 
         timeSincePhsicsStep += deltaTime;
+        std::cout << timeSincePhsicsStep << " " << deltaTime << std::endl;
         while (timeSincePhsicsStep > FIXEDFRAMERATE) {
             //step the physics
             //collect collision info
             //dispatch collisions
+            std::cout << "Running" << std::endl;
+            playerInput->Input(playerSpriteRenderer);
 
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }
