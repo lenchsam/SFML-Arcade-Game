@@ -41,13 +41,13 @@ int WinMain()
         lastTime = now;
 
         timeSincePhsicsStep += deltaTime;
-        std::cout << timeSincePhsicsStep << " " << deltaTime << std::endl;
         while (timeSincePhsicsStep > FIXEDFRAMERATE) {
             //step the physics
             //collect collision info
             //dispatch collisions
-            std::cout << "Running" << std::endl;
+
             playerInput->Input(playerSpriteRenderer);
+            player->transform->RotateTowards(&window, playerSpriteRenderer);
 
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }

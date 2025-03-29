@@ -31,6 +31,8 @@ namespace LLGP {
 			//m_sprite->setTexture(m_texture);
 			m_sprite->setScale({ 2.0f, 2.0f }); // absolute scale factor
 			m_sprite->setPosition({ 500.f, 500.f }); // absolute position
+			sf::FloatRect bounds = m_sprite->getLocalBounds();
+			m_sprite->setOrigin(bounds.getCenter());
 		}
 
 	}
