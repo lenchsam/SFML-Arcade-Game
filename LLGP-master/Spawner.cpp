@@ -18,6 +18,11 @@ namespace LLGP {
     }
     
     void Spawner::Spawn(sf::RenderWindow* window, GameObject* player) {
+        if (enemies.size() >= maxEnemiesSpawned) {
+            cout << "done" << endl;
+            return;
+        }
+
         GameObject* enemy = CreateNewEnemy(window);
 
         enemy->GetComponent<SpriteRenderer>()->GetSprite()->setPosition(GetRandomPositionAroundPlayer(player));
