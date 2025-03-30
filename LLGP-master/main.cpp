@@ -43,10 +43,6 @@ int WinMain()
         {
             if (event->is<sf::Event::Closed>())
                 window.close();
-
-            if (const sf::Event::KeyPressed * keyPress = event->getIf<sf::Event::KeyPressed> ()) {
-                //playerInput->Input(playerSpriteRenderer);
-            }
         }
 
         //deltaTime

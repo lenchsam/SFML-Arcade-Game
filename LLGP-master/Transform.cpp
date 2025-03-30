@@ -24,10 +24,11 @@ namespace LLGP {
 	}
 	void Transform::RotateTowards(sf::RenderWindow* window, SpriteRenderer* spriteRenderer) {
 		sf::Vector2i cursorPosition = sf::Mouse::getPosition(*window);
+		sf::Vector2f worldPos = window->mapPixelToCoords(cursorPosition);
 		sf::Vector2f spritePosition = spriteRenderer->GetSprite()->getPosition();
 
-		float a = spritePosition.x - cursorPosition.x;
-		float b = spritePosition.y - cursorPosition.y;
+		float a = spritePosition.x - worldPos.x;
+		float b = spritePosition.y - worldPos.y;
 
 		float rotation = (atan2(b, a)) * 180 / std::numbers::pi;
 
