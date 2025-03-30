@@ -8,10 +8,6 @@ namespace LLGP {
 		sf::Vector2f* m_Position = new sf::Vector2f(0, 0);
 	}
 
-	//Transform::~Transform() {
-	//	delete m_Position;
-	//}
-
 	sf::Vector2f Transform::GetPosition() {
 		return m_Position;
 	}

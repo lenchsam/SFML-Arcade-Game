@@ -6,11 +6,14 @@ namespace LLGP {
     Spawner::Spawner(GameObject* owner) {
         _GameObject = owner;
     }
-    GameObject* Spawner::CreateNewEnemy(sf::RenderWindow* window) {
-        Asteroid* enemy = new Asteroid();
+
+    template <typename T>
+    T* Spawner::CreateNewEnemy(sf::RenderWindow* window, std::string path) {
+        T* enemy = new T();
+
         //add health component here
 
-        enemy->spriteRenderer->LoadTexture("assets/sprites/ROCK.png");
+        enemy->spriteRenderer->LoadTexture(path);
 
         return enemy;
     }
@@ -21,22 +24,24 @@ namespace LLGP {
             return;
         }
         
-        GameObject* enemy = CreateNewEnemy(window);
+        Asteroid* enemy = CreateNewEnemy<Asteroid>(window, "assets/sprites/ROCK.png");
 
         enemy->GetComponent<SpriteRenderer>()->GetSprite()->setPosition(GetRandomPositionAroundPlayer(player));
+
+
 
         enemies.push_back(enemy);
     }
     
-    void Spawner::DrawAllEnemies(sf::RenderWindow* window) {
+    void Spawner::DrawAllEnemies(sf::RenderWindow* window, GameObject* player) {
         for (auto enemy : enemies) {
+            enemy->GoToTarget(player);
             enemy->GetComponent<SpriteRenderer>()->Draw(window);
         }
     }
 
     sf::Vector2f Spawner::GetRandomPositionAroundPlayer(GameObject* player) {
         
-        //TODO: change the random numbers to be around the player and not just around the screen
         sf::Vector2f playerPosition = player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
 
         int minX = playerPosition.x - spawnRadius;

@@ -19,6 +19,7 @@ namespace LLGP {
 			std::cout << "shooting" << std::endl;
 
 			Bullet* bullet = new Bullet();
+			bullet->Fire(this);
 
 			bullets.push_back(bullet);
 

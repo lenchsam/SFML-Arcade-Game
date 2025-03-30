@@ -60,9 +60,6 @@
     <ClCompile Include="Collider.cpp">
       <Filter>Source Files\Components\Colliders</Filter>
     </ClCompile>
-    <ClCompile Include="CircleCollider.cpp">
-      <Filter>Source Files\Components\Colliders</Filter>
-    </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
@@ -412,9 +409,6 @@
     </ClInclude>
     <ClInclude Include="Event.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleCollider.h">
-      <Filter>Header Files\Components\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="Collider.h">
       <Filter>Header Files\Components\Colliders</Filter>

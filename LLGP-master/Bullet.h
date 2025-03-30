@@ -14,8 +14,8 @@ namespace LLGP {
 
         SpriteRenderer* spriteRenderer;
 
+        void Fire(GameObject* player);
     private:
-        void Fire();
 
         Player* m_player;
         float m_Speed;

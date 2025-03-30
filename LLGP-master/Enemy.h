@@ -9,7 +9,8 @@ namespace LLGP {
         Enemy();
         SpriteRenderer* spriteRenderer;
         Health* health;
-
+        virtual void GoToTarget(GameObject* player);
+        float m_speed = 0.5f;
     };
 }
 

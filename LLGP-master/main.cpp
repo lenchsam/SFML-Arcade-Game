@@ -55,6 +55,8 @@ int WinMain()
             //step the physics
             //collect collision info
             //dispatch collisions
+            
+
 
             playerInput->Input(player, &deltaTime);
             player->transform->RotateTowards(&window, playerSpriteRenderer);
@@ -73,7 +75,7 @@ int WinMain()
         
         //spawn enemies
         spawnerComponent->Spawn(&window, player);
-        spawnerComponent->DrawAllEnemies(&window);
+        spawnerComponent->DrawAllEnemies(&window, player);
 
         window.display();
     }
