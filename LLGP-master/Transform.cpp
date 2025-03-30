@@ -19,6 +19,7 @@ namespace LLGP {
 	void Transform::ChangePosition(sf::Vector2f distance, SpriteRenderer* spriteRenderer) {
 		m_Position += distance;
 		spriteRenderer->GetSprite()->move(distance);
+
 		//std::cout << "m_Position" << std::endl;
 	}
 	void Transform::RotateTowards(sf::RenderWindow* window, SpriteRenderer* spriteRenderer) {

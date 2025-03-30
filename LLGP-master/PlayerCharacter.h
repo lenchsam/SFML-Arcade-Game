@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "SpriteRenderer.h"
+#include "Player.h"
 namespace LLGP {
 	class PlayerCharacter : public Component
 	{
@@ -8,7 +9,7 @@ namespace LLGP {
 		PlayerCharacter(GameObject* owner);
 		PlayerCharacter(const PlayerCharacter&) = default;
 
-		void Input(SpriteRenderer* spriteRenderer);
+		void Input(Player* player);
 	private:
 		float _speed;
 		GameObject* _GameObject;

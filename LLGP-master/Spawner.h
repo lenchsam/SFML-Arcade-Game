@@ -1,7 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "GameObject.h"
-#include "Enemy.h"
+#include "Asteroid.h"
 #include "SpriteRenderer.h"
 #include "Health.h"
 #include <SFML/Graphics.hpp>

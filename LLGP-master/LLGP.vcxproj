@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -145,6 +146,7 @@
     <ClCompile Include="Health.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
@@ -152,6 +154,7 @@
     <ClCompile Include="UUID.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Asteroid.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
@@ -262,6 +265,7 @@
     <ClInclude Include="packages\SFML\include\SFML\Window\WindowBase.hpp" />
     <ClInclude Include="packages\SFML\include\SFML\Window\WindowEnums.hpp" />
     <ClInclude Include="packages\SFML\include\SFML\Window\WindowHandle.hpp" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerCharacter.h" />
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="SpriteRenderer.h" />

@@ -7,7 +7,7 @@ namespace LLGP {
         _GameObject = owner;
     }
     GameObject* Spawner::CreateNewEnemy(sf::RenderWindow* window) {
-        Enemy* enemy = new Enemy();
+        Asteroid* enemy = new Asteroid();
         //add health component here
 
         enemy->spriteRenderer->LoadTexture("assets/sprites/ROCK.png");
@@ -20,7 +20,7 @@ namespace LLGP {
             //cout << "done" << endl;
             return;
         }
-
+        
         GameObject* enemy = CreateNewEnemy(window);
 
         enemy->GetComponent<SpriteRenderer>()->GetSprite()->setPosition(GetRandomPositionAroundPlayer(player));

@@ -3,6 +3,7 @@
 #include "PlayerCharacter.h"
 #include "SpriteRenderer.h"
 #include "Spawner.h"
+#include "Player.h"
 
 #ifdef _DEBUG
 int main()
@@ -17,7 +18,9 @@ int WinMain()
 
 
     // initialise player gameobject
-    LLGP::GameObject* player = new LLGP::GameObject();
+    LLGP::Player* player = new LLGP::Player();
+    sf::View view(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
+    player->view = &view;
     LLGP::SpriteRenderer* playerSpriteRenderer = player->AddComponent<LLGP::SpriteRenderer>();
     playerSpriteRenderer->LoadTexture("assets/sprites/PLAYER.png");
     LLGP::PlayerCharacter* playerInput = player->AddComponent<LLGP::PlayerCharacter>();
@@ -57,7 +60,7 @@ int WinMain()
             //collect collision info
             //dispatch collisions
 
-            playerInput->Input(playerSpriteRenderer);
+            playerInput->Input(player);
             player->transform->RotateTowards(&window, playerSpriteRenderer);
 
             timeSincePhsicsStep -= FIXEDFRAMERATE;
@@ -66,6 +69,8 @@ int WinMain()
 
         window.clear();
 
+
+        window.setView(view);
         //draw player
         playerSpriteRenderer->Draw(&window);
         
