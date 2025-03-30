@@ -11,6 +11,7 @@ int WinMain()
 #endif
 {
     const float FIXEDFRAMERATE(0.02);
+
     sf::RenderWindow window(sf::VideoMode({ 800, 800 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(FIXEDFRAMERATE);
 
@@ -45,6 +46,7 @@ int WinMain()
             }
         }
 
+        //deltaTime
         std::chrono::steady_clock::time_point now = std::chrono::steady_clock::now();
         deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(now - lastTime).count() / 1000000.f;
         lastTime = now;
