@@ -69,6 +69,7 @@ int WinMain()
         window.setView(view);
         //draw player
         playerSpriteRenderer->Draw(&window);
+        player->DrawAllBullets(&window);
         
         //spawn enemies
         spawnerComponent->Spawn(&window, player);
