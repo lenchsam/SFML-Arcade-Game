@@ -1,5 +1,7 @@
 #include "Spawner.h"
-#include <cstdlib>
+#include <iostream>
+#include <random>
+using namespace std;
 namespace LLGP {
     Spawner::Spawner(GameObject* owner) {
         _GameObject = owner;
@@ -15,10 +17,10 @@ namespace LLGP {
         return enemy;
     }
     
-    void Spawner::Spawn(sf::RenderWindow* window) {
+    void Spawner::Spawn(sf::RenderWindow* window, GameObject* player) {
         GameObject* enemy = CreateNewEnemy(window);
 
-        enemy->GetComponent<SpriteRenderer>()->GetSprite()->setPosition(GetRandomPositionAroundPlayer());
+        enemy->GetComponent<SpriteRenderer>()->GetSprite()->setPosition(GetRandomPositionAroundPlayer(player));
 
         enemies.push_back(enemy);
     }
@@ -29,11 +31,25 @@ namespace LLGP {
         }
     }
 
-    sf::Vector2f Spawner::GetRandomPositionAroundPlayer() {
+    sf::Vector2f Spawner::GetRandomPositionAroundPlayer(GameObject* player) {
         
         //TODO: change the random numbers to be around the player and not just around the screen
-        float x = rand() % 800;
-        float y = rand() % 600;
-        return sf::Vector2f(x, y);
+        sf::Vector2f playerPosition = player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
+
+        int minX = playerPosition.x - spawnRadius;
+        int maxX = playerPosition.x + spawnRadius;
+
+        int minY = playerPosition.y - spawnRadius;
+        int maxY = playerPosition.y + spawnRadius;
+
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        uniform_int_distribution<> distribX(minX, maxX);
+        uniform_int_distribution<> distribY(minY, maxY);
+
+        int randomValueX = distribX(gen);
+        int randomValueY = distribY(gen);
+
+        return sf::Vector2f(randomValueX, randomValueY);
     }
 }

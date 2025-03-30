@@ -12,7 +12,7 @@ int WinMain()
 {
     const float FIXEDFRAMERATE(0.02);
 
-    sf::RenderWindow window(sf::VideoMode({ 800, 800 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode({ 1000, 1000 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(FIXEDFRAMERATE);
 
 
@@ -70,7 +70,7 @@ int WinMain()
         playerSpriteRenderer->Draw(&window);
         
         //spawn enemies
-        spawnerComponent->Spawn(&window);
+        spawnerComponent->Spawn(&window, player);
         spawnerComponent->DrawAllEnemies(&window);
 
         window.display();
