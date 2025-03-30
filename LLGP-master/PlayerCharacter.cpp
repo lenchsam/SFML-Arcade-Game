@@ -9,7 +9,7 @@ namespace LLGP {
 		_GameObject->SetTag("Player");
 	}
 
-	void PlayerCharacter::Input(Player* player) {
+	void PlayerCharacter::Input(Player* player, float* deltaTime) {
 		SpriteRenderer* spriteRenderer = player->GetComponent<SpriteRenderer>();
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 		{
@@ -30,6 +30,9 @@ namespace LLGP {
 		{
 			_GameObject->transform->ChangePosition({ 1, 0 }, spriteRenderer);
 			player->MoveCamera({ 1, 0 });
+		}
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+			player->Shoot(deltaTime);
 		}
 	}
 }

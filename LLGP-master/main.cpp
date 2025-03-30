@@ -56,7 +56,7 @@ int WinMain()
             //collect collision info
             //dispatch collisions
 
-            playerInput->Input(player);
+            playerInput->Input(player, &deltaTime);
             player->transform->RotateTowards(&window, playerSpriteRenderer);
 
             timeSincePhsicsStep -= FIXEDFRAMERATE;
