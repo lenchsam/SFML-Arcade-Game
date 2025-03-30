@@ -140,7 +140,9 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentConcepts.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Health.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
@@ -154,8 +156,10 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentConcepts.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Health.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="packages\SFML\include\SFML\Audio.hpp" />
     <ClInclude Include="packages\SFML\include\SFML\Audio\AudioResource.hpp" />

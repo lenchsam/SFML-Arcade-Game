@@ -3,6 +3,7 @@
 #include "SpriteRenderer.h"
 #include "Transform.h"
 #include "Spawner.h"
+#include "Health.h"
 
 namespace LLGP {
 	GameObject::GameObject() {
@@ -37,5 +38,6 @@ namespace LLGP {
 	template SpriteRenderer* GameObject::AddComponent<SpriteRenderer>();
 	template Transform* GameObject::AddComponent<Transform>();
 	template Spawner* GameObject::AddComponent<Spawner>();
+	template Health* GameObject::AddComponent<Health>();
 }
 

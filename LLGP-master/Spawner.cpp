@@ -7,19 +7,17 @@ namespace LLGP {
         _GameObject = owner;
     }
     GameObject* Spawner::CreateNewEnemy(sf::RenderWindow* window) {
-        GameObject* enemy = new GameObject();
-        SpriteRenderer* enemySpriteRenderer = enemy->AddComponent<SpriteRenderer>();
-
+        Enemy* enemy = new Enemy();
         //add health component here
 
-        enemySpriteRenderer->LoadTexture("assets/sprites/ROCK.png");
+        enemy->spriteRenderer->LoadTexture("assets/sprites/ROCK.png");
 
         return enemy;
     }
     
     void Spawner::Spawn(sf::RenderWindow* window, GameObject* player) {
         if (enemies.size() >= maxEnemiesSpawned) {
-            cout << "done" << endl;
+            //cout << "done" << endl;
             return;
         }
 
