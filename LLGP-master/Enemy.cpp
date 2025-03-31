@@ -15,8 +15,10 @@ namespace LLGP {
 
 		direction.normalized();
 
+		direction *= m_speed;
+
 		GetComponent<SpriteRenderer>()->GetSprite()->move(direction);
 
-		std::cout << direction.x << +" " << direction.y << std::endl;
+		//std::cout << direction.x << +" " << direction.y << std::endl;
 	}
 }
