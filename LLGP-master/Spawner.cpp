@@ -8,7 +8,7 @@ namespace LLGP {
     }
 
     template <typename T>
-    T* Spawner::CreateNewEnemy(sf::RenderWindow* window, std::string path) {
+    T* Spawner::CreateNewEnemy(std::string path) {
         T* enemy = new T();
 
         //add health component here
@@ -24,7 +24,7 @@ namespace LLGP {
             return;
         }
         
-        Asteroid* enemy = CreateNewEnemy<Asteroid>(window, "assets/sprites/ROCK.png");
+        Asteroid* enemy = CreateNewEnemy<Asteroid>("assets/sprites/ROCK.png");
 
         enemy->GetComponent<SpriteRenderer>()->GetSprite()->setPosition(GetRandomPositionAroundPlayer(player));
 
@@ -39,7 +39,7 @@ namespace LLGP {
         }
     }
 
-    void Spawner::DrawAllEnemies(sf::RenderWindow* window, GameObject* player) {
+    void Spawner::DrawAllEnemies(sf::RenderWindow* window) {
         for (auto enemy : enemies) {
             enemy->GetComponent<SpriteRenderer>()->Draw(window);
         }

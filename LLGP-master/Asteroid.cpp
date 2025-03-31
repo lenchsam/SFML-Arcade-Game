@@ -7,8 +7,8 @@ namespace LLGP {
 
 	}
 
-	void Asteroid::GoToTarget(GameObject* player) {
-		sf::Vector2f end = player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
+	void Asteroid::GoToTarget(GameObject* target) {
+		sf::Vector2f end = target->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
 		sf::Vector2f start = GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
 
 		sf::Vector2f direction = end - start;

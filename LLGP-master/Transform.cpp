@@ -12,22 +12,22 @@ namespace LLGP {
 		return m_Position;
 	}
 
-	void Transform::ChangePosition(sf::Vector2f distance, SpriteRenderer* spriteRenderer) {
+	void Transform::ChangePosition(sf::Vector2f distance) {
 		m_Position += distance;
-		spriteRenderer->GetSprite()->move(distance);
+		_GameObject->GetComponent<SpriteRenderer>()->GetSprite()->move(distance);
 
 		//std::cout << "m_Position" << std::endl;
 	}
-	void Transform::RotateTowards(sf::RenderWindow* window, SpriteRenderer* spriteRenderer) {
+	void Transform::RotateTowards(sf::RenderWindow* window) {
 		sf::Vector2i cursorPosition = sf::Mouse::getPosition(*window);
 		sf::Vector2f worldPos = window->mapPixelToCoords(cursorPosition);
-		sf::Vector2f spritePosition = spriteRenderer->GetSprite()->getPosition();
+		sf::Vector2f spritePosition = _GameObject->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
 
 		float a = spritePosition.x - worldPos.x;
 		float b = spritePosition.y - worldPos.y;
 
 		float rotation = (atan2(b, a)) * 180 / std::numbers::pi;
 
-		spriteRenderer->GetSprite()->setRotation(sf::degrees(rotation - 90));
+		_GameObject->GetComponent<SpriteRenderer>()->GetSprite()->setRotation(sf::degrees(rotation - 90));
 	}
 }

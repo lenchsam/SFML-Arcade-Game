@@ -9,30 +9,26 @@ namespace LLGP {
 		_GameObject->SetTag("Player");
 	}
 
-	void PlayerCharacter::Input(Player* player, float* deltaTime) {
-		SpriteRenderer* spriteRenderer = player->GetComponent<SpriteRenderer>();
+	void PlayerCharacter::Input(Player* player) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 		{
-			_GameObject->transform->ChangePosition({ 0, -1 }, spriteRenderer);
+			_GameObject->transform->ChangePosition({ 0, -1 });
 			player->MoveCamera({ 0, -1 });
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 		{
-			_GameObject->transform->ChangePosition({-1, 0}, spriteRenderer);
+			_GameObject->transform->ChangePosition({-1, 0});
 			player->MoveCamera({ -1, 0 });
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
 		{
-			_GameObject->transform->ChangePosition({ 0, 1 }, spriteRenderer);
+			_GameObject->transform->ChangePosition({ 0, 1 });
 			player->MoveCamera({ 0, 1 });
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 		{
-			_GameObject->transform->ChangePosition({ 1, 0 }, spriteRenderer);
+			_GameObject->transform->ChangePosition({ 1, 0 });
 			player->MoveCamera({ 1, 0 });
-		}
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-			//player->Shoot();
 		}
 	}
 }

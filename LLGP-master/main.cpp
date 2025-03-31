@@ -58,17 +58,17 @@ int WinMain()
             //dispatch collisions
 
 
-            playerInput->Input(player, &deltaTime);
+            playerInput->Input(player);
 
 
-            player->transform->RotateTowards(&window, playerSpriteRenderer);
+            player->transform->RotateTowards(&window);
 
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }
 
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-                player->Shoot(deltaTime);
-            }
+            //if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+            player->Shoot(deltaTime);
+            //}
 
         window.clear();
 
@@ -79,9 +79,10 @@ int WinMain()
         player->DrawAllBullets(&window);
         
         spawnerComponent->MoveAllEnemies(player);
+
         //spawn enemies
         spawnerComponent->Spawn(&window, player);
-        spawnerComponent->DrawAllEnemies(&window, player);
+        spawnerComponent->DrawAllEnemies(&window);
 
         window.display();
     }

@@ -14,12 +14,12 @@ namespace LLGP{
     public:
         Spawner(GameObject* owner);
         void Spawn(sf::RenderWindow* window, GameObject* player);
-        void DrawAllEnemies(sf::RenderWindow* window, GameObject* player);
+        void DrawAllEnemies(sf::RenderWindow* window);
         void MoveAllEnemies(GameObject* player);
     private:
         sf::Vector2f GetRandomPositionAroundPlayer(GameObject* player);
         template <typename T>
-        T* CreateNewEnemy(sf::RenderWindow* window, std::string path);
+        T* CreateNewEnemy(std::string path);
         GameObject* _GameObject;
         int spawnRadius = 1000;
         std::vector<Enemy*> enemies;

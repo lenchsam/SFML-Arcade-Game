@@ -14,13 +14,15 @@ namespace LLGP {
 	void Player::Shoot(float deltaTime) {
 		m_time += deltaTime;
 
-		if (m_time >= m_shootingSpeed) {
-			Bullet* bullet = new Bullet();
-			bullet->Fire(this);
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+			if (m_time >= m_shootingSpeed) {
+				Bullet* bullet = new Bullet();
+				bullet->Fire(this);
 
-			bullets.push_back(bullet);
+				bullets.push_back(bullet);
 
-			m_time = 0.f;
+				m_time = 0.f;
+			}
 		}
 	}
 	void Player::DrawAllBullets(sf::RenderWindow* window) {
