@@ -33,6 +33,12 @@ namespace LLGP {
         enemies.push_back(enemy);
     }
     
+    void Spawner::MoveAllEnemies(GameObject* player) {
+        for (auto enemy : enemies) {
+            enemy->GoToTarget(player);
+        }
+    }
+
     void Spawner::DrawAllEnemies(sf::RenderWindow* window, GameObject* player) {
         for (auto enemy : enemies) {
             enemy->GoToTarget(player);

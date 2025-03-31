@@ -22,6 +22,6 @@ namespace LLGP {
 
 		GetComponent<SpriteRenderer>()->GetSprite()->move(direction * m_speed);
 
-		std::cout << direction.x << + " " << direction.y << std::endl;
+		//std::cout << direction.x << + " " << direction.y << std::endl;
 	}
 }

@@ -15,6 +15,7 @@ namespace LLGP{
         Spawner(GameObject* owner);
         void Spawn(sf::RenderWindow* window, GameObject* player);
         void DrawAllEnemies(sf::RenderWindow* window, GameObject* player);
+        void MoveAllEnemies(GameObject* player);
     private:
         sf::Vector2f GetRandomPositionAroundPlayer(GameObject* player);
         template <typename T>

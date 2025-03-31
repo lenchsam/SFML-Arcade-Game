@@ -16,7 +16,7 @@ namespace LLGP {
 		//std::cout << m_Time << std::endl;
 
 		if (m_Time > m_shootingSpeed) {
-			std::cout << "shooting" << std::endl;
+			//std::cout << "shooting" << std::endl;
 
 			Bullet* bullet = new Bullet();
 			bullet->Fire(this);

@@ -60,6 +60,7 @@ int WinMain()
 
             playerInput->Input(player, &deltaTime);
             player->transform->RotateTowards(&window, playerSpriteRenderer);
+            spawnerComponent->MoveAllEnemies(player);
 
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }
