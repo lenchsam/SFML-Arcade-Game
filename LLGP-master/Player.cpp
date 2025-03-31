@@ -11,19 +11,16 @@ namespace LLGP {
 	void Player::MoveCamera(sf::Vector2f movement) {
 		view->move(movement);
 	}
-	void Player::Shoot(float* deltaTime) {
-		m_Time += *deltaTime * 100;
-		//std::cout << m_Time << std::endl;
+	void Player::Shoot(float deltaTime) {
+		m_time += deltaTime;
 
-		if (m_Time > m_shootingSpeed) {
-			//std::cout << "shooting" << std::endl;
-
+		if (m_time >= m_shootingSpeed) {
 			Bullet* bullet = new Bullet();
 			bullet->Fire(this);
 
 			bullets.push_back(bullet);
 
-			m_Time = 0.f;
+			m_time = 0.f;
 		}
 	}
 	void Player::DrawAllBullets(sf::RenderWindow* window) {

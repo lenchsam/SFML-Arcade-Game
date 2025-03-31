@@ -34,6 +34,7 @@ int WinMain()
     float deltaTime = 0.f;
     float timeSincePhsicsStep = 0.0f;
 
+    float time = 0;
 
     while (window.isOpen())
     {
@@ -55,16 +56,19 @@ int WinMain()
             //step the physics
             //collect collision info
             //dispatch collisions
-            
 
 
             playerInput->Input(player, &deltaTime);
+
+
             player->transform->RotateTowards(&window, playerSpriteRenderer);
-            spawnerComponent->MoveAllEnemies(player);
 
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }
 
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+                player->Shoot(deltaTime);
+            }
 
         window.clear();
 
@@ -74,6 +78,7 @@ int WinMain()
         playerSpriteRenderer->Draw(&window);
         player->DrawAllBullets(&window);
         
+        spawnerComponent->MoveAllEnemies(player);
         //spawn enemies
         spawnerComponent->Spawn(&window, player);
         spawnerComponent->DrawAllEnemies(&window, player);

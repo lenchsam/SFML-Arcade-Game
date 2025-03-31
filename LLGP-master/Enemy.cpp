@@ -13,7 +13,7 @@ namespace LLGP {
 
 		sf::Vector2f direction = end - start;
 
-		direction.normalized();
+		direction = direction.normalized();
 
 		direction *= m_speed;
 

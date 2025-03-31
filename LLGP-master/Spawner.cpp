@@ -41,7 +41,6 @@ namespace LLGP {
 
     void Spawner::DrawAllEnemies(sf::RenderWindow* window, GameObject* player) {
         for (auto enemy : enemies) {
-            enemy->GoToTarget(player);
             enemy->GetComponent<SpriteRenderer>()->Draw(window);
         }
     }

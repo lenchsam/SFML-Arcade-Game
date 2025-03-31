@@ -32,7 +32,7 @@ namespace LLGP {
 			player->MoveCamera({ 1, 0 });
 		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-			player->Shoot(deltaTime);
+			//player->Shoot();
 		}
 	}
 }
