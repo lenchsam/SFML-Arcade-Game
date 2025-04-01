@@ -1,14 +1,13 @@
 #pragma once
 #include "Enemy.h"
-#include <cmath>
 namespace LLGP {
-    class Asteroid :
+    class WorkerDrone :
         public Enemy
     {
     public:
-        Asteroid();
-        ~Asteroid();
-        void GoToTarget(GameObject* player);
+        WorkerDrone();
+        ~WorkerDrone();
+        void Init();
     private:
         sf::Vector2f target;
     };

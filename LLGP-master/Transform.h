@@ -12,7 +12,7 @@ namespace LLGP {
 		void SetPosition();
 		sf::Vector2f GetPosition();
 		void ChangePosition(sf::Vector2f distance);
-		void RotateTowards(sf::RenderWindow* window);
+		void RotateTowardsMouse(sf::RenderWindow* window);
 
 	private:
 		sf::Vector2f m_Position;

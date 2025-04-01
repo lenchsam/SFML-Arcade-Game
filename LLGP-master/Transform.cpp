@@ -18,7 +18,7 @@ namespace LLGP {
 
 		//std::cout << "m_Position" << std::endl;
 	}
-	void Transform::RotateTowards(sf::RenderWindow* window) {
+	void Transform::RotateTowardsMouse(sf::RenderWindow* window) {
 		sf::Vector2i cursorPosition = sf::Mouse::getPosition(*window);
 		sf::Vector2f worldPos = window->mapPixelToCoords(cursorPosition);
 		sf::Vector2f spritePosition = _GameObject->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();

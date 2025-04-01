@@ -14,6 +14,7 @@ namespace LLGP {
         //add health component here
 
         enemy->spriteRenderer->LoadTexture(path);
+        enemy->Init();
 
         return enemy;
     }
@@ -24,7 +25,7 @@ namespace LLGP {
             return;
         }
         
-        Asteroid* enemy = CreateNewEnemy<Asteroid>("assets/sprites/ROCK.png");
+        WorkerDrone* enemy = CreateNewEnemy<WorkerDrone>("assets/sprites/PLAYER.png");
 
         enemy->GetComponent<SpriteRenderer>()->GetSprite()->setPosition(GetRandomPositionAroundPlayer(player));
 

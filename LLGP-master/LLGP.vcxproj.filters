@@ -49,6 +49,12 @@
     <Filter Include="Header Files\Components\Colliders">
       <UniqueIdentifier>{bfeb528a-a59e-4a43-9f60-fa1218dcd1fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Objects\Enemies">
+      <UniqueIdentifier>{95349e7b-980c-4e88-a6f1-620ab2cebfab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Enemies">
+      <UniqueIdentifier>{63088cd0-5d99-4b4b-8df9-a2db8c4f9864}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -87,10 +93,7 @@
     <ClCompile Include="Health.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Asteroid.cpp">
+    <ClCompile Include="WorkerDrone.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
@@ -98,6 +101,18 @@
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Planetoid.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollider.cpp">
+      <Filter>Source Files\Components\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider.cpp">
+      <Filter>Source Files\Components\Colliders</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -437,13 +452,10 @@
     <ClInclude Include="ComponentConcepts.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Health.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Asteroid.h">
+    <ClInclude Include="WorkerDrone.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
@@ -451,6 +463,18 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Objects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Planetoid.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider.h">
+      <Filter>Header Files\Components\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>Header Files\Components\Colliders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

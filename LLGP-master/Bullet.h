@@ -11,6 +11,7 @@ namespace LLGP {
         Bullet();
         ~Bullet();
         void SetPlayer(Player* player);
+        Transform* transform;
 
         SpriteRenderer* spriteRenderer;
 

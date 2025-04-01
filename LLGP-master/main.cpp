@@ -59,22 +59,18 @@ int WinMain()
 
 
             playerInput->Input(player);
-
-
-            player->transform->RotateTowards(&window);
+            player->transform->RotateTowardsMouse(&window);
 
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }
 
-            //if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-            player->Shoot(deltaTime);
-            //}
+        player->Shoot(deltaTime);
 
         window.clear();
 
-
         window.setView(view);
-        //draw player
+
+        //draw player and bullets
         playerSpriteRenderer->Draw(&window);
         player->DrawAllBullets(&window);
         

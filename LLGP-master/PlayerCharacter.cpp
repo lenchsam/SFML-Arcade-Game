@@ -10,6 +10,7 @@ namespace LLGP {
 	}
 
 	void PlayerCharacter::Input(Player* player) {
+		sf::Angle rotation = player->GetComponent<SpriteRenderer>()->GetSprite()->getRotation();
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 		{
 			_GameObject->transform->ChangePosition({ 0, -1 });
