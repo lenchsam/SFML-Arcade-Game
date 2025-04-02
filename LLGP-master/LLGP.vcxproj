@@ -138,6 +138,7 @@
   <ItemGroup>
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
+    <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Planetoid.cpp" />
     <ClCompile Include="WorkerDrone.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -159,6 +160,7 @@
   <ItemGroup>
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="CircleCollider.h" />
+    <ClInclude Include="Physics.h" />
     <ClInclude Include="Planetoid.h" />
     <ClInclude Include="WorkerDrone.h" />
     <ClInclude Include="Bullet.h" />

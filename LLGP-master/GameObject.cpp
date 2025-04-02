@@ -4,6 +4,7 @@
 #include "Transform.h"
 #include "Spawner.h"
 #include "Health.h"
+#include "CircleCollider.h"
 
 namespace LLGP {
 	GameObject::GameObject() {
@@ -39,5 +40,6 @@ namespace LLGP {
 	template Transform* GameObject::AddComponent<Transform>();
 	template Spawner* GameObject::AddComponent<Spawner>();
 	template Health* GameObject::AddComponent<Health>();
+	template CircleCollider* GameObject::AddComponent<CircleCollider>();
 }
 

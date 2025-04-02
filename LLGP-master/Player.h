@@ -14,7 +14,7 @@ namespace LLGP {
         void Shoot(float deltaTime);
         void DrawAllBullets(sf::RenderWindow* window);
     private:
-        std::vector<GameObject*> bullets;
+        std::vector<GameObject*> _Bullets;
         float m_shootingSpeed = 0.5f;
         float m_time = 0;
     };

@@ -1,13 +1,14 @@
 #pragma once
 #include "Collider.h"
+#include "Physics.h"
+#include "GameObject.h"
 namespace LLGP {
-    class GameObject;
     class CircleCollider :
         public Collider
     {
     public:
         CircleCollider(GameObject* owner);
-        ~CircleCollider();
+        ~CircleCollider() = default;
 
         void SetRadius(float radius);
     private:

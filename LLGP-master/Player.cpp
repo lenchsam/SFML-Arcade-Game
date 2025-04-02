@@ -1,9 +1,9 @@
 #include "Player.h"
 #include "Bullet.h"
-
+#include "CircleCollider.h"
 namespace LLGP {
 	Player::Player() {
-
+		AddComponent<CircleCollider>();
 	}
 	Player::~Player() {
 		delete view;
@@ -19,14 +19,14 @@ namespace LLGP {
 				Bullet* bullet = new Bullet();
 				bullet->Fire(this);
 
-				bullets.push_back(bullet);
+				_Bullets.push_back(bullet);
 
 				m_time = 0.f;
 			}
 		}
 	}
 	void Player::DrawAllBullets(sf::RenderWindow* window) {
-		for (auto bullet : bullets) {
+		for (auto bullet : _Bullets) {
 			bullet->GetComponent<SpriteRenderer>()->Draw(window);
 		}
 	}

@@ -4,6 +4,7 @@
 #include "SpriteRenderer.h"
 #include "Spawner.h"
 #include "Player.h"
+#include "Physics.h"
 
 #ifdef _DEBUG
 int main()
@@ -16,10 +17,10 @@ int WinMain()
     sf::RenderWindow window(sf::VideoMode({ 1000, 1000 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(FIXEDFRAMERATE);
 
+    sf::View view(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
 
     // initialise player gameobject
     LLGP::Player* player = new LLGP::Player();
-    sf::View view(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
     player->view = &view;
     LLGP::SpriteRenderer* playerSpriteRenderer = player->AddComponent<LLGP::SpriteRenderer>();
     playerSpriteRenderer->LoadTexture("assets/sprites/PLAYER.png");
@@ -53,9 +54,9 @@ int WinMain()
 
         timeSincePhsicsStep += deltaTime;
         while (timeSincePhsicsStep > FIXEDFRAMERATE) {
-            //step the physics
-            //collect collision info
-            //dispatch collisions
+            LLGP::Physics::E_StepPhysics();
+            LLGP::Physics::GetCollisionInfo();
+            LLGP::Physics::DispatchCollisions();
 
 
             playerInput->Input(player);
