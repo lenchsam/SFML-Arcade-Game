@@ -22,6 +22,8 @@ namespace LLGP {
 		inline void SetTag(std::string newTag) { m_Tag = newTag; }
 		inline bool CompareTag(std::string comp) { return m_Tag == comp; }
 
+		static inline LLGP::Event<> OnWorldFixedUpdate;
+
 		template<class T> requires isComponent<T> T* GetComponent();
 		template<class T> requires isComponent<T> T* AddComponent();
 		template<class T> requires isComponent<T> bool RemoveComponent(T* comp);

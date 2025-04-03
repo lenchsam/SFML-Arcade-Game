@@ -7,11 +7,11 @@ namespace LLGP {
         public GameObject
     {
     public:
-        Player();
+        Player(sf::View* view);
         ~Player();
         void MoveCamera(sf::Vector2f movement);
-        sf::View* view;
-        void Shoot(float deltaTime);
+        sf::View* m_view;
+        void Shoot(float deltaTime, sf::RenderWindow* window);
         void DrawAllBullets(sf::RenderWindow* window);
     private:
         std::vector<GameObject*> _Bullets;

@@ -3,7 +3,7 @@
 
 namespace LLGP {
 
-	CircleCollider::CircleCollider(GameObject* owner) : m_Radius(0.5f), _GameObject(owner) {
+	CircleCollider::CircleCollider(GameObject* owner) : m_Radius(10.f), _GameObject(owner) {
 		Physics::AddCollider(this);
 		
 	};

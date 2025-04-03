@@ -15,12 +15,13 @@ namespace LLGP {
 
         SpriteRenderer* spriteRenderer;
 
-        void Fire(GameObject* player);
+        void Fire(GameObject* player, sf::RenderWindow* window);
     private:
 
         Player* m_player;
         float m_Speed;
         float m_Damage;
+        sf::Vector2f m_directionToFire;
     };
 }
 

@@ -20,16 +20,11 @@ int WinMain()
     sf::View view(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
 
     // initialise player gameobject
-    LLGP::Player* player = new LLGP::Player();
-    player->view = &view;
-    LLGP::SpriteRenderer* playerSpriteRenderer = player->AddComponent<LLGP::SpriteRenderer>();
-    playerSpriteRenderer->LoadTexture("assets/sprites/PLAYER.png");
-    LLGP::PlayerCharacter* playerInput = player->AddComponent<LLGP::PlayerCharacter>();
+    LLGP::Player* player = new LLGP::Player(&view);
 
 
     //initialise the spawner gameobject
-    LLGP::GameObject* spawner = new LLGP::GameObject();
-    LLGP::Spawner* spawnerComponent = spawner->AddComponent<LLGP::Spawner>();
+    LLGP::Spawner* spawner = new LLGP::Spawner(player);
 
     std::chrono::steady_clock::time_point lastTime = std::chrono::steady_clock::now();
     float deltaTime = 0.f;
@@ -59,28 +54,27 @@ int WinMain()
             //LLGP::Physics::DispatchCollisions();
             LLGP::Physics::CheckCollisions();
 
+            //spawner->MoveAllEnemies(player);
 
-            playerInput->Input(player);
+            player->GetComponent<LLGP::PlayerCharacter>()->Input(player);
             player->transform->RotateTowardsMouse(&window);
 
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }
 
-        player->Shoot(deltaTime);
+        player->Shoot(deltaTime, &window);
 
         window.clear();
 
         window.setView(view);
 
         //draw player and bullets
-        playerSpriteRenderer->Draw(&window);
+        player->GetComponent<LLGP::SpriteRenderer>()->Draw(&window);
         player->DrawAllBullets(&window);
         
-        spawnerComponent->MoveAllEnemies(player);
-
         //spawn enemies
-        spawnerComponent->Spawn(&window, player);
-        spawnerComponent->DrawAllEnemies(&window);
+        spawner->Spawn(&window, player);
+        spawner->DrawAllEnemies(&window);
 
         window.display();
     }

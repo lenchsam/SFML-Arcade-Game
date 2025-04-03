@@ -9,18 +9,18 @@
 
 namespace LLGP{
     class GameObject;
-    class Spawner: public Component
+    class Spawner: public GameObject
     {
     public:
-        Spawner(GameObject* owner);
+        Spawner(GameObject* player);
         void Spawn(sf::RenderWindow* window, GameObject* player);
         void DrawAllEnemies(sf::RenderWindow* window);
-        void MoveAllEnemies(GameObject* player);
+        void MoveAllEnemies();
     private:
+        GameObject* _player;
         sf::Vector2f GetRandomPositionAroundPlayer(GameObject* player);
         template <typename T>
         T* CreateNewEnemy(std::string path);
-        GameObject* _GameObject;
         int spawnRadius = 1000;
         std::vector<Enemy*> enemies;
         int maxEnemiesSpawned = 1;

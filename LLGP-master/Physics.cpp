@@ -25,7 +25,7 @@ namespace LLGP {
 		//get difference in position
 		//get radius of both colliders
 		//if radius added together is < difference in position
-		sf::Vector2f posDifference = b->GetPosition() - a->GetPosition();
+		sf::Vector2f posDifference = b->GetPosition() - a->GetPosition(); 
 		float radiusCombined = a->GetRadius() + b->GetRadius();
 
 		float distanceSquared = posDifference.x * posDifference.x + posDifference.y * posDifference.y;

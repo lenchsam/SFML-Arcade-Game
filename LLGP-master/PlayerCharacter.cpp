@@ -8,18 +8,16 @@ namespace LLGP {
 		_GameObject = owner;
 		_GameObject->SetTag("Player");
 	}
-
 	void PlayerCharacter::Input(Player* player) {
-		sf::Angle rotation = player->GetComponent<SpriteRenderer>()->GetSprite()->getRotation();
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 		{
-			_GameObject->transform->ChangePosition({ 0, -1 });
+			_GameObject->transform->ChangePosition({ 0, -1});
 			player->MoveCamera({ 0, -1 });
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 		{
-			_GameObject->transform->ChangePosition({-1, 0});
-			player->MoveCamera({ -1, 0 });
+			_GameObject->transform->ChangePosition({-1, 0  });
+			player->MoveCamera({ -1 , 0 });
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
 		{
@@ -28,7 +26,7 @@ namespace LLGP {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 		{
-			_GameObject->transform->ChangePosition({ 1, 0 });
+			_GameObject->transform->ChangePosition({ 1, 0  });
 			player->MoveCamera({ 1, 0 });
 		}
 	}

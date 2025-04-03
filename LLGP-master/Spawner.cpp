@@ -1,10 +1,12 @@
 #include "Spawner.h"
 #include <iostream>
 #include <random>
+#include "Physics.h"
 using namespace std;
 namespace LLGP {
-    Spawner::Spawner(GameObject* owner) {
-        _GameObject = owner;
+    Spawner::Spawner(GameObject* player) {
+        _player = player;
+        //Physics::E_StepPhysics.AddListener(this, std::bind(&Spawner::MoveAllEnemies, this));
     }
 
     template <typename T>
@@ -34,9 +36,9 @@ namespace LLGP {
         enemies.push_back(enemy);
     }
     
-    void Spawner::MoveAllEnemies(GameObject* player) {
+    void Spawner::MoveAllEnemies() {
         for (auto enemy : enemies) {
-            enemy->GoToTarget(player);
+            enemy->GoToTarget(_player);
         }
     }
 

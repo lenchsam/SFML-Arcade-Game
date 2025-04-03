@@ -11,6 +11,7 @@ namespace LLGP {
 		m_Active = true;
 		m_Tag = "Default";
 		transform = AddComponent<Transform>();
+
 	}
 	template<class T> requires isComponent<T>
 	T* GameObject::GetComponent() {
@@ -27,6 +28,7 @@ namespace LLGP {
 	}
 
 	template SpriteRenderer* GameObject::GetComponent<SpriteRenderer>();
+	template PlayerCharacter* GameObject::GetComponent<PlayerCharacter>();
 
 	template<class T> requires isComponent<T>
 	T* GameObject::AddComponent() {
@@ -38,8 +40,11 @@ namespace LLGP {
 	template PlayerCharacter* GameObject::AddComponent<PlayerCharacter>();
 	template SpriteRenderer* GameObject::AddComponent<SpriteRenderer>();
 	template Transform* GameObject::AddComponent<Transform>();
-	template Spawner* GameObject::AddComponent<Spawner>();
 	template Health* GameObject::AddComponent<Health>();
 	template CircleCollider* GameObject::AddComponent<CircleCollider>();
+
+	void GameObject::OnFixedUpdate() {
+
+	}
 }
 
