@@ -23,7 +23,7 @@ namespace LLGP{
         GameObject* _GameObject;
         int spawnRadius = 1000;
         std::vector<Enemy*> enemies;
-        int maxEnemiesSpawned = 5;
+        int maxEnemiesSpawned = 1;
     };
 }
 

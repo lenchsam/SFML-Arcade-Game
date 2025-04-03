@@ -11,6 +11,8 @@ namespace LLGP {
         ~CircleCollider() = default;
 
         void SetRadius(float radius);
+        float GetRadius();
+        sf::Vector2f GetPosition();
     private:
         float m_Radius;
         GameObject* _GameObject;

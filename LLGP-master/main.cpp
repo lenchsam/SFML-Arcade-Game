@@ -55,8 +55,9 @@ int WinMain()
         timeSincePhsicsStep += deltaTime;
         while (timeSincePhsicsStep > FIXEDFRAMERATE) {
             LLGP::Physics::E_StepPhysics();
-            LLGP::Physics::GetCollisionInfo();
-            LLGP::Physics::DispatchCollisions();
+            //LLGP::Physics::GetCollisionInfo();
+            //LLGP::Physics::DispatchCollisions();
+            LLGP::Physics::CheckCollisions();
 
 
             playerInput->Input(player);

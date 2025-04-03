@@ -1,10 +1,12 @@
 #include "Enemy.h"
 #include "SpriteRenderer.h"
+#include "CircleCollider.h"
 
 namespace LLGP {
 	Enemy::Enemy() {
 		health = AddComponent<Health>();
 		spriteRenderer = AddComponent<SpriteRenderer>();
+		AddComponent<CircleCollider>();
 	}
 	
 	void Enemy::GoToTarget(GameObject* player) {

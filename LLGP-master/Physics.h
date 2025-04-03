@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include <vector>
 #include "Event.h"
 
@@ -14,14 +15,16 @@ namespace LLGP {
 		//static because this isnt going to be a gameobject, allows it to be called in main
 		static void GetCollisionInfo();
 		static void DispatchCollisions();
-		static void AddCollider(Collider* c);
+		static void AddCollider(CircleCollider* c);
+		static void RemoveCollider(CircleCollider* col);
+		static void CheckCollisions();
 
 		static inline Event<> E_StepPhysics;
 
-		void CircleCollision(CircleCollider* a, CircleCollider* b);
 
 	private:
-		static inline std::vector<Collider*> _Colliders;
+		static bool CheckCircleCollision(CircleCollider* a, CircleCollider* b);
+		static inline std::vector<CircleCollider*> _Colliders;
 	};
 }
 
