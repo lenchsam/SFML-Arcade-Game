@@ -6,4 +6,10 @@ namespace LLGP {
 	Planetoid::~Planetoid() {
 
 	}
+	void Planetoid::OnCollision(GameObject* other) {
+		
+	}
+	void Planetoid::RandomMovements() {
+
+	}
 }

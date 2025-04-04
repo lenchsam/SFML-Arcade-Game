@@ -7,7 +7,7 @@ namespace LLGP {
 	public:
 		Health(GameObject* _GameObject);
 		float GetHealth();
-		void SetHealth(float damage);
+		void DealDamage(float damage);
 		void Die();
 	private:
 		float m_health;

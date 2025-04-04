@@ -11,6 +11,7 @@ namespace LLGP {
         Health* health;
         virtual void GoToTarget(GameObject* player);
         float m_speed = 2.f;
+        void OnCollision(GameObject* other) override;
     };
 }
 

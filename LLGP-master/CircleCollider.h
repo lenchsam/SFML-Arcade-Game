@@ -13,9 +13,9 @@ namespace LLGP {
         void SetRadius(float radius);
         float GetRadius();
         sf::Vector2f GetPosition();
+        GameObject* _GameObject;
     private:
         float m_Radius;
-        GameObject* _GameObject;
     };
 }
 

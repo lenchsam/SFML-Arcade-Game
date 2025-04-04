@@ -54,7 +54,7 @@ int WinMain()
             //LLGP::Physics::DispatchCollisions();
             LLGP::Physics::CheckCollisions();
             player->MoveAllBullets();
-            //spawner->MoveAllEnemies(player);
+            spawner->MoveAllEnemies();
 
             player->GetComponent<LLGP::PlayerCharacter>()->Input(player);
             player->transform->RotateTowardsMouse(&window);

@@ -28,6 +28,8 @@ namespace LLGP {
 		template<class T> requires isComponent<T> T* AddComponent();
 		template<class T> requires isComponent<T> bool RemoveComponent(T* comp);
 
+		virtual void OnCollision(GameObject* other);
+
 	private:
 		std::string m_Name;
 		bool m_Active;

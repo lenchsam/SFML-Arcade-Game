@@ -8,8 +8,12 @@ namespace LLGP {
         Planetoid();
         ~Planetoid();
 
-    private:
+        void OnCollision(GameObject* other);
 
+    private:
+        void RandomMovements();
+
+        float m_MovementSpeed;
     };
 }
 
