@@ -42,9 +42,5 @@ namespace LLGP {
 	template Transform* GameObject::AddComponent<Transform>();
 	template Health* GameObject::AddComponent<Health>();
 	template CircleCollider* GameObject::AddComponent<CircleCollider>();
-
-	void GameObject::OnFixedUpdate() {
-
-	}
 }
 

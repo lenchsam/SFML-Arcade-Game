@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 
 namespace LLGP {
+    class Bullet;
     class Player :
         public GameObject
     {
@@ -13,8 +14,10 @@ namespace LLGP {
         sf::View* m_view;
         void Shoot(float deltaTime, sf::RenderWindow* window);
         void DrawAllBullets(sf::RenderWindow* window);
+
+        void MoveAllBullets();
     private:
-        std::vector<GameObject*> _Bullets;
+        std::vector<Bullet*> _Bullets;
         float m_shootingSpeed = 0.5f;
         float m_time = 0;
     };

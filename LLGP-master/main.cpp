@@ -53,7 +53,7 @@ int WinMain()
             //LLGP::Physics::GetCollisionInfo();
             //LLGP::Physics::DispatchCollisions();
             LLGP::Physics::CheckCollisions();
-
+            player->MoveAllBullets();
             //spawner->MoveAllEnemies(player);
 
             player->GetComponent<LLGP::PlayerCharacter>()->Input(player);

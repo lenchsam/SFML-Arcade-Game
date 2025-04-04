@@ -37,4 +37,10 @@ namespace LLGP {
 			bullet->GetComponent<SpriteRenderer>()->Draw(window);
 		}
 	}
+
+	void Player::MoveAllBullets() {
+		for (auto bullet : _Bullets) {
+			bullet->MoveBullet();
+		}
+	}
 }

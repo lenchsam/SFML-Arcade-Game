@@ -16,6 +16,8 @@ namespace LLGP {
         SpriteRenderer* spriteRenderer;
 
         void Fire(GameObject* player, sf::RenderWindow* window);
+
+        void MoveBullet();
     private:
 
         Player* m_player;
