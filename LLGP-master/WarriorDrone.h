@@ -1,13 +1,13 @@
 #pragma once
 #include "Enemy.h"
 namespace LLGP {
-    class WorkerDrone :
+    class WarriorDrone :
         public Enemy
     {
     public:
-        WorkerDrone();
-        ~WorkerDrone();
-        void Init();
+        WarriorDrone();
+        ~WarriorDrone();
+        void Init() override;
     private:
         sf::Vector2f target;
     };

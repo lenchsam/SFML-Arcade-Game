@@ -72,9 +72,6 @@
     <ClCompile Include="PlayerCharacter.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Spawner.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="SpriteRenderer.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
@@ -114,8 +111,11 @@
     <ClCompile Include="Physics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WorkerDrone.cpp">
+    <ClCompile Include="WarriorDrone.cpp">
       <Filter>Source Files\Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Spawner.cpp">
+      <Filter>Source Files\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -437,9 +437,6 @@
     <ClInclude Include="PlayerCharacter.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Spawner.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="SpriteRenderer.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
@@ -479,8 +476,11 @@
     <ClInclude Include="Physics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WorkerDrone.h">
+    <ClInclude Include="WarriorDrone.h">
       <Filter>Header Files\Objects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawner.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -73,7 +73,7 @@ int WinMain()
         player->DrawAllBullets(&window);
         
         //spawn enemies
-        spawner->Spawn(&window, player);
+        spawner->Spawn(&window);
         spawner->DrawAllEnemies(&window);
 
         window.display();

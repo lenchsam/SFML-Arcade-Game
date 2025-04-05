@@ -10,6 +10,7 @@ namespace LLGP {
         SpriteRenderer* spriteRenderer;
         Health* health;
         virtual void GoToTarget(GameObject* player);
+        virtual void Init();
         float m_speed = 2.f;
         void OnCollision(GameObject* other) override;
     };

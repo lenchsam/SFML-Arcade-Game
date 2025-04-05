@@ -1,14 +1,15 @@
 #pragma once
-#include "GameObject.h"
+#include "Enemy.h"
 namespace LLGP {
     class Planetoid :
-        public GameObject
+        public Enemy
     {
     public:
         Planetoid();
         ~Planetoid();
 
         void OnCollision(GameObject* other);
+        void Init();
 
     private:
         void RandomMovements();
