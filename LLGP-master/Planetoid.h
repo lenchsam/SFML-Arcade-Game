@@ -11,6 +11,8 @@ namespace LLGP {
         void OnCollision(GameObject* other);
         void Init();
 
+        void GoToTarget(GameObject* player) override;
+
     private:
         void RandomMovements();
 

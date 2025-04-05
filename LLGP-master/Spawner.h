@@ -28,8 +28,8 @@ namespace LLGP{
         std::vector<WarriorDrone*> WarriorDrones;
         std::vector<GameObject*> WorkerDrones;
         std::vector<Planetoid*> Planetoids;
-        int m_maxWorkerDroneSpawned = 1;
-        int m_maxWarriorDroneSpawned = 1;
+        int m_maxWorkerDroneSpawned = 15;
+        int m_maxWarriorDroneSpawned = 4;
         int m_maxPlanetoidSpawned = 15;
     };
 }

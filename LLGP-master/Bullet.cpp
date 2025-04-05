@@ -1,7 +1,7 @@
 #include "Bullet.h"
 #include "CircleCollider.h"
 namespace LLGP {
-	Bullet::Bullet() {
+	Bullet::Bullet(bool firedByPlayer) {
 		transform = AddComponent<Transform>();
 		spriteRenderer = AddComponent<SpriteRenderer>();
 		AddComponent<CircleCollider>()->SetRadius(7);

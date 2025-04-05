@@ -22,7 +22,7 @@ namespace LLGP {
 
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
 			if (m_time >= m_shootingSpeed) {
-				Bullet* bullet = new Bullet();
+				Bullet* bullet = new Bullet(true);
 				bullet->Fire(this, window);
 
 				_Bullets.push_back(bullet);

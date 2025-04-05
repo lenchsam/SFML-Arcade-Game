@@ -8,10 +8,12 @@ namespace LLGP {
         public GameObject
     {
     public:
-        Bullet();
+        Bullet(bool firedByPlayer);
         ~Bullet();
         void SetPlayer(Player* player);
         Transform* transform;
+
+        bool firedByPlayer;
 
         SpriteRenderer* spriteRenderer;
 
