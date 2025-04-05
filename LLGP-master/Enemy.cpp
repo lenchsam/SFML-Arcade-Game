@@ -34,12 +34,12 @@ namespace LLGP {
 
 		if (bullet) {
 			//if other object is a bullet
-			std::cout << "other is bullet - from enemy" << std::endl;
-			//TakeDamage();
+			//std::cout << "other is bullet - from enemy" << std::endl;
+			health->DealDamage(bullet->m_Damage);
 			//bullet->Destroy();
 		}
 		else {
-			std::cout << "other is NOT bullet - from enemy" << std::endl;
+			//std::cout << "other is NOT bullet - from enemy" << std::endl;
 		}
 	}
 }

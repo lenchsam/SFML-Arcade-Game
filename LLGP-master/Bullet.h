@@ -18,11 +18,11 @@ namespace LLGP {
         void Fire(GameObject* player, sf::RenderWindow* window);
 
         void MoveBullet();
+        float m_Damage;
     private:
 
         Player* m_player;
         float m_Speed;
-        float m_Damage;
         sf::Vector2f m_directionToFire;
     };
 }

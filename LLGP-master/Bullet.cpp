@@ -9,6 +9,7 @@ namespace LLGP {
 		spriteRenderer->GetSprite()->setScale({2.f, 2.f});
 
 		m_Speed = 5.f;
+		m_Damage = 5.f;
 	}
 	void Bullet::Fire(GameObject* player, sf::RenderWindow* window) {
 		sf::Vector2f playerPosition = player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
