@@ -9,7 +9,7 @@ using namespace std;
 namespace LLGP {
     Spawner::Spawner(GameObject* player) {
         _player = player;
-        //Physics::E_StepPhysics.AddListener(this, std::bind(&Spawner::MoveAllEnemies, this));
+        Physics::OnStepPhysics += std::bind(&Spawner::MoveAllEnemies, this);
     }
 
     template <typename T>

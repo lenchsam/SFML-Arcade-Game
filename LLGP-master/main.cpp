@@ -49,12 +49,12 @@ int WinMain()
 
         timeSincePhsicsStep += deltaTime;
         while (timeSincePhsicsStep > FIXEDFRAMERATE) {
-            LLGP::Physics::E_StepPhysics();
+            LLGP::Physics::StepPhysics();
             //LLGP::Physics::GetCollisionInfo();
             //LLGP::Physics::DispatchCollisions();
             LLGP::Physics::CheckCollisions();
             player->MoveAllBullets();
-            spawner->MoveAllEnemies();
+            //spawner->MoveAllEnemies();
 
             player->GetComponent<LLGP::PlayerCharacter>()->Input(player);
             player->transform->RotateTowardsMouse(&window);

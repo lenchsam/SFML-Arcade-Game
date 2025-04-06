@@ -1,7 +1,6 @@
 #include "Physics.h"
 #include "CircleCollider.h"
 namespace LLGP {
-	Event<> E_StepPhysics;
 
 	void Physics::GetCollisionInfo() {
 
@@ -54,4 +53,7 @@ namespace LLGP {
 		//no collision detected
 	}
 
+	void Physics::StepPhysics() {
+		OnStepPhysics();
+	}
 }

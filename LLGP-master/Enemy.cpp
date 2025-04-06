@@ -7,7 +7,7 @@ namespace LLGP {
 	Enemy::Enemy() {
 		health = AddComponent<Health>();
 		spriteRenderer = AddComponent<SpriteRenderer>();
-		AddComponent<CircleCollider>();
+		circleCollider = AddComponent<CircleCollider>();
 	}
 	
 	void Enemy::GoToTarget(GameObject* player) {

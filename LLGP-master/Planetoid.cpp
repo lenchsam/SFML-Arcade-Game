@@ -3,7 +3,7 @@
 #include "Bullet.h"
 namespace LLGP {
 	Planetoid::Planetoid() {
-
+		circleCollider->SetRadius(25.f);
 	}
 	Planetoid::~Planetoid() {
 

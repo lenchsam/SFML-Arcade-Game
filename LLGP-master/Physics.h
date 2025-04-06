@@ -18,8 +18,9 @@ namespace LLGP {
 		static void AddCollider(CircleCollider* c);
 		static void RemoveCollider(CircleCollider* col);
 		static void CheckCollisions();
+		static void StepPhysics();
 
-		static inline Event<> E_StepPhysics;
+		static inline LLGP::Event<> OnStepPhysics;
 
 
 	private:
