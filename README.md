@@ -20,9 +20,12 @@ This project is intended to be a clone of the arcade game sinistar. I was tasked
 
 ## Future Features
 
- - Shooting
- - Colliders
  - UI
+ - Enemy Death
+ - Resources
+ - Scenes
+ - Crafting Bombs
+ - Sinistar Boss
 
 ## Getting Started
 ### Requirements
