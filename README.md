@@ -1,6 +1,6 @@
 # Sinistar Clone
 
-Hi! This project was created for one of my university modules during my final year. This is developed using C++ and SFML. It's currently not finished, as im still doing this module.
+Hi! This project was created for one of my university modules during my final year. This is developed using C++ and utilises SFML. It's currently not finished, as im still doing this module.
 ## Table of Contents
 - [Sinistar Clone](#sinistar-clone)
   * [About](#about)
