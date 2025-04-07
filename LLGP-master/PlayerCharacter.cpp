@@ -7,6 +7,7 @@ namespace LLGP {
 		_speed = 1.20f;
 		_GameObject = owner;
 		_GameObject->SetTag("Player");
+
 	}
 	void PlayerCharacter::Input(Player* player) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))

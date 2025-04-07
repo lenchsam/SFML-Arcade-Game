@@ -15,6 +15,8 @@ namespace LLGP {
         float m_speed = 2.f;
         void OnCollision(GameObject* other) override;
 
+        void RotateTowardsPlayer(GameObject* player);
+
         void DestroyThis() override;
     protected:
         CircleCollider* circleCollider;

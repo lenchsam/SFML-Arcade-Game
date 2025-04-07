@@ -16,6 +16,7 @@ namespace LLGP{
         void Spawn(sf::RenderWindow* window);
         void DrawAllEnemies(sf::RenderWindow* window);
         void MoveAllEnemies();
+        void RotateTowardsPlayer(GameObject* player);
     private:
         void SpawnWorkerDrones();
         void SpawnWarriorDrones();

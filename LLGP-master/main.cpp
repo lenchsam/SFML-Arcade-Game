@@ -53,11 +53,11 @@ int WinMain()
             //LLGP::Physics::GetCollisionInfo();
             //LLGP::Physics::DispatchCollisions();
             LLGP::Physics::CheckCollisions();
-            player->MoveAllBullets();
-            //spawner->MoveAllEnemies();
 
             player->GetComponent<LLGP::PlayerCharacter>()->Input(player);
+
             player->transform->RotateTowardsMouse(&window);
+            spawner->RotateTowardsPlayer(player);
 
             timeSincePhsicsStep -= FIXEDFRAMERATE;
         }

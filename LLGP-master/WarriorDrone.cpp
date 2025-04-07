@@ -3,6 +3,7 @@
 namespace LLGP {
 	WarriorDrone::WarriorDrone() {
 		m_speed = 5.f;
+		
 	}
 	WarriorDrone::~WarriorDrone() {
 

@@ -21,7 +21,11 @@ namespace LLGP {
 
         return enemy;
     }
-    
+    void Spawner::RotateTowardsPlayer(GameObject* player) {
+        for (auto enemy : WarriorDrones) {
+            enemy->RotateTowardsPlayer(player);
+        }
+    }
     void Spawner::Spawn(sf::RenderWindow* window) {
         SpawnWorkerDrones();
         SpawnWarriorDrones();

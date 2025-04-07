@@ -2,6 +2,7 @@
 #include "Bullet.h"
 #include "CircleCollider.h"
 #include "PlayerCharacter.h"
+#include "Physics.h"
 namespace LLGP {
 	Player::Player(sf::View* view) {
 		SpriteRenderer* playerSpriteRenderer = AddComponent<LLGP::SpriteRenderer>();
@@ -9,6 +10,8 @@ namespace LLGP {
 		AddComponent<PlayerCharacter>();
 		AddComponent<CircleCollider>();
 		m_view = view;
+
+		Physics::OnStepPhysics += std::bind(&Player::MoveAllBullets, this);
 		
 	}
 	Player::~Player() {

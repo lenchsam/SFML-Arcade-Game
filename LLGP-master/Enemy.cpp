@@ -2,6 +2,7 @@
 #include "SpriteRenderer.h"
 #include "CircleCollider.h"
 #include "Bullet.h"
+#include <numbers>
 
 namespace LLGP {
 	Enemy::Enemy() {
@@ -47,5 +48,16 @@ namespace LLGP {
 	}
 	void Enemy::DestroyThis() {
 		std::cout << "w0ooooooooooow its CHILD CLASS" << std::endl;
+	}
+	void Enemy::RotateTowardsPlayer(GameObject* player) {
+		sf::Vector2f playerPosition = player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
+		sf::Vector2f spritePosition = GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
+
+		float a = spritePosition.x - playerPosition.x;
+		float b = spritePosition.y - playerPosition.y;
+
+		float rotation = (atan2(b, a)) * 180 / std::numbers::pi;
+
+		GetComponent<SpriteRenderer>()->GetSprite()->setRotation(sf::degrees(rotation - 90));
 	}
 }
