@@ -12,8 +12,6 @@ namespace LLGP {
 		m_Tag = "Default";
 		transform = AddComponent<Transform>();
 
-		isDestroyed = false;
-
 		GameObject::OnWorldEndFrame += std::bind(&GameObject::OnEndFrame, this);
 
 	}
