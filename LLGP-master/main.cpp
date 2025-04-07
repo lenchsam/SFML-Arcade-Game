@@ -77,5 +77,8 @@ int WinMain()
         spawner->DrawAllEnemies(&window);
 
         window.display();
+
+        //end of frame event
+        LLGP::GameObject::OnWorldEndFrame();
     }
 }

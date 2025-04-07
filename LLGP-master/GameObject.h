@@ -23,6 +23,7 @@ namespace LLGP {
 		inline bool CompareTag(std::string comp) { return m_Tag == comp; }
 
 		static inline LLGP::Event<> OnWorldFixedUpdate;
+		static inline LLGP::Event<> OnWorldEndFrame; 
 
 		template<class T> requires isComponent<T> T* GetComponent();
 		template<class T> requires isComponent<T> T* AddComponent();
@@ -30,11 +31,15 @@ namespace LLGP {
 
 		virtual void OnCollision(GameObject* other);
 
+		bool isDestroyed = false;
 	private:
 		std::string m_Name;
 		bool m_Active;
 		std::string m_Tag;
 		std::vector<std::unique_ptr<Component>> m_Components;
+		
+		void OnEndFrame();
+		virtual void DestroyThis();
 	public:
 		inline bool operator==(const GameObject& other) { return this->uuid == other.uuid; }
 		inline bool operator!=(const GameObject& other) { return !(*this == other); }

@@ -12,6 +12,10 @@ namespace LLGP {
 		m_Tag = "Default";
 		transform = AddComponent<Transform>();
 
+		isDestroyed = false;
+
+		GameObject::OnWorldEndFrame += std::bind(&GameObject::OnEndFrame, this);
+
 	}
 	template<class T> requires isComponent<T>
 	T* GameObject::GetComponent() {
@@ -45,6 +49,14 @@ namespace LLGP {
 
 	void GameObject::OnCollision(GameObject* other) {
 
+	}
+	void GameObject::OnEndFrame() {
+		if (isDestroyed) {
+			DestroyThis();
+		}
+	}
+	void GameObject::DestroyThis() {
+		std::cout << "wow its destroyed" << std::endl;
 	}
 }
 

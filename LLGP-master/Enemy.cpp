@@ -34,7 +34,7 @@ namespace LLGP {
 
 		if (bullet) {
 			//if other object is a bullet
-			std::cout << "other is bullet - from enemy" << std::endl;
+			//std::cout << "other is bullet - from enemy" << std::endl;
 			health->DealDamage(bullet->m_Damage);
 			//bullet->Destroy();
 		}
@@ -44,5 +44,8 @@ namespace LLGP {
 	}
 	void Enemy::Init() {
 
+	}
+	void Enemy::DestroyThis() {
+		std::cout << "w0ooooooooooow its CHILD CLASS" << std::endl;
 	}
 }

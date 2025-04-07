@@ -14,6 +14,8 @@ namespace LLGP {
         virtual void Init();
         float m_speed = 2.f;
         void OnCollision(GameObject* other) override;
+
+        void DestroyThis() override;
     protected:
         CircleCollider* circleCollider;
     };
