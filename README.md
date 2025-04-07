@@ -16,7 +16,9 @@ This project is intended to be a clone of the arcade game sinistar. I was tasked
 ## Features
 
  - Object oriented approach to making the arcade game sinistar in SFML.
- - Full gameobject and component system with multiple components including sprite renderer, transform, and spawner.
+ - Full gameobject and component system with multiple components including sprite renderer, transform, health and more.
+ - Collisions
+ - Enemy Spawning
 
 ## Future Features
 
