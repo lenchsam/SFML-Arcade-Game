@@ -9,6 +9,7 @@ namespace LLGP{
     class GameObject;
     class Planetoid;
     class WarriorDrone;
+    class Enemy;
     class Spawner: public GameObject
     {
     public:
@@ -17,7 +18,12 @@ namespace LLGP{
         void DrawAllEnemies(sf::RenderWindow* window);
         void MoveAllEnemies();
         void RotateTowardsPlayer(GameObject* player);
+        void DestroyWarriorDroneFromList(GameObject* enemy);
+        void DestroyWorkerDroneFromList(GameObject* enemy);
+        void DestroyPlanetoidFromList(GameObject* enemy);
     private:
+        void AddToDestroyedList(GameObject* enemyToDestroy);
+        void DestroyAllNeccessary();
         void SpawnWorkerDrones();
         void SpawnWarriorDrones();
         void SpawnPlanetoids();
@@ -29,6 +35,7 @@ namespace LLGP{
         std::vector<WarriorDrone*> WarriorDrones;
         std::vector<GameObject*> WorkerDrones;
         std::vector<Planetoid*> Planetoids;
+        std::vector<GameObject*> DestroyedEnemies;
         int m_maxWorkerDroneSpawned = 15;
         int m_maxWarriorDroneSpawned = 4;
         int m_maxPlanetoidSpawned = 15;

@@ -7,6 +7,7 @@
 #include <memory>
 
 namespace LLGP {
+	class Spawner;
 	class GameObject : public Object
 	{
 	public:
@@ -25,11 +26,43 @@ namespace LLGP {
 		static inline LLGP::Event<> OnWorldFixedUpdate;
 		static inline LLGP::Event<> OnWorldEndFrame; 
 
-		template<class T> requires isComponent<T> T* GetComponent();
-		template<class T> requires isComponent<T> T* AddComponent();
-		template<class T> requires isComponent<T> bool RemoveComponent(T* comp);
+		template<class T> requires isComponent<T> T* GetComponent() {
+			T* returnComp = nullptr;
+			for (int i = 0; i < m_Components.size(); i++) {
+
+				returnComp = dynamic_cast<T*>(m_Components[i].get());
+				if (returnComp != nullptr) {
+					break;
+				}
+			}
+
+			return returnComp;
+		}
+		template<class T> requires isComponent<T> T* AddComponent() {
+			std::unique_ptr<Component> newComp = std::make_unique<T>(this);
+			m_Components.push_back(std::move(newComp));
+			return static_cast<T*>(m_Components[m_Components.size() - 1].get());
+		}
+		template<class T> requires isComponent<T> bool RemoveComponent(T* comp) {
+			T* castedType = nullptr;
+			for (int i = 0; i < m_Components.size(); i++)
+			{
+				if (castedType = dynamic_cast<T>(m_Components[i].get()))
+				{
+					if (*castedType == *comp)
+					{
+						m_Components[i].reset();
+						m_Components.erase(std::next(m_Components.begin(), i));
+						return true;
+					}
+				}
+			}
+			return false;
+		}
 
 		virtual void OnCollision(GameObject* other);
+
+		virtual void DestroyThis(Spawner* spawner);
 
 		bool isDestroyed = false;
 	private:
@@ -39,7 +72,6 @@ namespace LLGP {
 		std::vector<std::unique_ptr<Component>> m_Components;
 		
 		void OnEndFrame();
-		virtual void DestroyThis();
 	public:
 		inline bool operator==(const GameObject& other) { return this->uuid == other.uuid; }
 		inline bool operator!=(const GameObject& other) { return !(*this == other); }

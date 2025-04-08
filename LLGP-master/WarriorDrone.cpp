@@ -1,4 +1,5 @@
 #include "WarriorDrone.h"
+#include "Spawner.h"
 
 namespace LLGP {
 	WarriorDrone::WarriorDrone() {
@@ -41,5 +42,12 @@ namespace LLGP {
 
 
 		
+	}
+	void WarriorDrone::DestroyThis(Spawner* spawner) {
+		std::cout << "Worker Drone is destroyed" << std::endl;
+		spawner->DestroyWarriorDroneFromList(this);
+		RemoveComponent<CircleCollider>(circleCollider);
+		SetActive(false);
+
 	}
 }

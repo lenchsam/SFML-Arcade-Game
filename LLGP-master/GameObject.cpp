@@ -15,46 +15,28 @@ namespace LLGP {
 		GameObject::OnWorldEndFrame += std::bind(&GameObject::OnEndFrame, this);
 
 	}
-	template<class T> requires isComponent<T>
-	T* GameObject::GetComponent() {
-		T* returnComp = nullptr;
-		for (int i = 0; i < m_Components.size(); i++) {
 
-			returnComp = dynamic_cast<T*>(m_Components[i].get());
-			if (returnComp != nullptr) {
-				break;
-			}
+	void GameObject::SetActive(bool newActive) {
+		if (m_Active == newActive) return;
+
+		m_Active = newActive;
+		for (int i = 0; i < m_Components.size(); i++)
+		{
+			m_Components[i].get()->OwnerActiveChange(m_Active);
 		}
-
-		return returnComp;
 	}
-
-	template SpriteRenderer* GameObject::GetComponent<SpriteRenderer>();
-	template PlayerCharacter* GameObject::GetComponent<PlayerCharacter>();
-
-	template<class T> requires isComponent<T>
-	T* GameObject::AddComponent() {
-		std::unique_ptr<Component> newComp = std::make_unique<T>(this);
-		m_Components.push_back(std::move(newComp));
-		return static_cast<T*>(m_Components[m_Components.size() - 1].get());
-	}
-
-	template PlayerCharacter* GameObject::AddComponent<PlayerCharacter>();
-	template SpriteRenderer* GameObject::AddComponent<SpriteRenderer>();
-	template Transform* GameObject::AddComponent<Transform>();
-	template Health* GameObject::AddComponent<Health>();
-	template CircleCollider* GameObject::AddComponent<CircleCollider>();
 
 	void GameObject::OnCollision(GameObject* other) {
 
 	}
 	void GameObject::OnEndFrame() {
-		if (isDestroyed) {
-			DestroyThis();
-		}
+		//if (isDestroyed) {
+		//	DestroyThis();
+		//}
 	}
-	void GameObject::DestroyThis() {
-		std::cout << "wow its destroyed" << std::endl;
+	void GameObject::DestroyThis(Spawner* spawner) {
+		
+		std::cout << "GameObject is destroyed" << std::endl;
 	}
 }
 

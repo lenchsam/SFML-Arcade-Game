@@ -3,6 +3,7 @@
 #include "Health.h"
 namespace LLGP {
     class CircleCollider;
+    class Spawner;
     class Enemy :
         public GameObject
     {
@@ -17,9 +18,11 @@ namespace LLGP {
 
         void RotateTowardsPlayer(GameObject* player);
 
-        void DestroyThis() override;
+        void DestroyThis(Spawner* spawner) override;
     protected:
         CircleCollider* circleCollider;
+
+        //void OnEndFrame();
     };
 }
 

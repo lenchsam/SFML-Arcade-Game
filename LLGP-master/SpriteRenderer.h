@@ -13,6 +13,8 @@ namespace LLGP {
 		void SetSprite(sf::Sprite* sprite);
 		sf::Sprite* GetSprite();
 		void Draw(sf::RenderWindow* window);
+		void OwnerActiveChange(bool newActive) override;
+		bool canDraw = true;
 
 	private:
 		sf::Texture m_texture;

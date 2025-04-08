@@ -15,6 +15,10 @@ void LLGP::Health::DealDamage(float damage) {
 		Die();
 }
 void LLGP::Health::Die() {
-	_GameObject->isDestroyed = true;
-	std::cout << _GameObject->isDestroyed << std::endl;
+	isDestroyed = true;
+
+	OnEnemyDeath(_GameObject);
+	//_GameObject->DestroyThis();
+	//std::cout << _GameObject->isDestroyed << std::endl;
+	_GameObject->GetComponent<SpriteRenderer>()->GetSprite()->setColor(sf::Color(0, 128, 200));
 }

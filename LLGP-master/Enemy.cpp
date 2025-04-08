@@ -46,8 +46,8 @@ namespace LLGP {
 	void Enemy::Init() {
 
 	}
-	void Enemy::DestroyThis() {
-		std::cout << "w0ooooooooooow its CHILD CLASS" << std::endl;
+	void Enemy::DestroyThis(Spawner* spawner) {
+		std::cout << "Enemy is destroyed" << std::endl;
 	}
 	void Enemy::RotateTowardsPlayer(GameObject* player) {
 		sf::Vector2f playerPosition = player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();

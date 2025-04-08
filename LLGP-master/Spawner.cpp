@@ -10,6 +10,8 @@ namespace LLGP {
     Spawner::Spawner(GameObject* player) {
         _player = player;
         Physics::OnStepPhysics += std::bind(&Spawner::MoveAllEnemies, this);
+        GameObject::OnWorldEndFrame += std::bind(&Spawner::DestroyAllNeccessary, this);
+        Health::OnEnemyDeath += std::bind(&Spawner::AddToDestroyedList, this, std::placeholders::_1);
     }
 
     template <typename T>
@@ -51,6 +53,17 @@ namespace LLGP {
         for (auto planetoid : Planetoids) {
             planetoid->GetComponent<SpriteRenderer>()->Draw(window);
         }
+    }
+
+    void Spawner::DestroyAllNeccessary() {
+        for (auto enemy : DestroyedEnemies) {
+            enemy->DestroyThis(this);
+        }
+        DestroyedEnemies.clear();
+    }
+
+    void Spawner::DestroyWarriorDroneFromList(GameObject* enemy) {
+        WarriorDrones.erase(std::remove(WarriorDrones.begin(), WarriorDrones.end(), enemy), WarriorDrones.end());
     }
 
     sf::Vector2f Spawner::GetRandomPosition() {
@@ -99,5 +112,10 @@ namespace LLGP {
         enemy->GetComponent<SpriteRenderer>()->GetSprite()->setPosition(GetRandomPosition());
 
         Planetoids.push_back(enemy);
+    }
+
+    void Spawner::AddToDestroyedList(GameObject* enemyToDestroy) {
+        DestroyedEnemies.push_back(enemyToDestroy);
+        std::cout << "put in destroyed enemy list" << std::endl;
     }
 }

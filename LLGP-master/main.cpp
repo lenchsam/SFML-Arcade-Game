@@ -79,6 +79,7 @@ int WinMain()
         window.display();
 
         //end of frame event
+
         LLGP::GameObject::OnWorldEndFrame();
     }
 }
