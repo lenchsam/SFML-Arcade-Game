@@ -45,13 +45,13 @@ namespace LLGP {
 
     void Spawner::DrawAllEnemies(sf::RenderWindow* window) {
         for (auto warrior : WarriorDrones) {
-            //warrior->GetComponent<SpriteRenderer>()->Draw(window);
+            warrior->GetComponent<SpriteRenderer>()->Draw(window);
         }
         for (auto worker : WorkerDrones) {
-            //worker->GetComponent<SpriteRenderer>()->Draw(window);
+            worker->GetComponent<SpriteRenderer>()->Draw(window);
         }
         for (auto planetoid : Planetoids) {
-            //planetoid->GetComponent<SpriteRenderer>()->Draw(window);
+            planetoid->GetComponent<SpriteRenderer>()->Draw(window);
         }
     }
 

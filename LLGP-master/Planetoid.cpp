@@ -37,7 +37,7 @@ namespace LLGP {
 		}
 	}
 	void Planetoid::RandomMovements() {
-
+		
 	}
 	void Planetoid::Init() {
 
@@ -68,7 +68,7 @@ namespace LLGP {
 	void Planetoid::SpawnCrystals() {
 		for (int i = 0; i <= m_crystals - 1; i++) {
 			std::cout << "crystal Spawned" << std::endl;
-			new Crystal();
+			new Crystal(GetComponent<SpriteRenderer>()->GetSprite()->getPosition());
 		}
 	}
 	int Planetoid::GetCrystalNumber() {

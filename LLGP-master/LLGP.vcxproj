@@ -139,6 +139,7 @@
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Crystal.cpp" />
+    <ClCompile Include="CrystalManager.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Planetoid.cpp" />
     <ClCompile Include="WarriorDrone.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Crystal.h" />
+    <ClInclude Include="CrystalManager.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Planetoid.h" />
     <ClInclude Include="WarriorDrone.h" />

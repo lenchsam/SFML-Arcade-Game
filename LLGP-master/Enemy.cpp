@@ -13,7 +13,7 @@ namespace LLGP {
 		SpriteRenderer::RenderSprite += std::bind(&Enemy::Draw, this, std::placeholders::_1);
 	}
 	void Enemy::Draw(sf::RenderWindow* window) {
-		spriteRenderer->Draw(window);
+		//spriteRenderer->Draw(window);
 	}
 	void Enemy::GoToTarget(GameObject* player) {
 		sf::Vector2f end = player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();

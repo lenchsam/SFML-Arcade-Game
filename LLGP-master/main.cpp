@@ -6,7 +6,6 @@
 #include "Player.h"
 #include "Physics.h"
 
-
 #ifdef _DEBUG
 int main()
 #else

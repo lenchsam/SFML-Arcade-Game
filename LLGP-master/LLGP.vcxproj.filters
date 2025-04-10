@@ -120,6 +120,9 @@
     <ClCompile Include="Crystal.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="CrystalManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="packages\SFML\include\SFML\Audio.hpp">
@@ -487,6 +490,9 @@
     </ClInclude>
     <ClInclude Include="Crystal.h">
       <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CrystalManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
