@@ -20,9 +20,10 @@ namespace LLGP {
 
         void DestroyThis(Spawner* spawner) override;
     protected:
-        CircleCollider* circleCollider;
 
-        //void OnEndFrame();
+        void Draw(sf::RenderWindow* window);
+
+        CircleCollider* circleCollider;
     };
 }
 

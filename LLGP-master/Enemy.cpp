@@ -9,8 +9,12 @@ namespace LLGP {
 		health = AddComponent<Health>();
 		spriteRenderer = AddComponent<SpriteRenderer>();
 		circleCollider = AddComponent<CircleCollider>();
+
+		SpriteRenderer::RenderSprite += std::bind(&Enemy::Draw, this, std::placeholders::_1);
 	}
-	
+	void Enemy::Draw(sf::RenderWindow* window) {
+		spriteRenderer->Draw(window);
+	}
 	void Enemy::GoToTarget(GameObject* player) {
 		sf::Vector2f end = player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
 		sf::Vector2f start = GetComponent<SpriteRenderer>()->GetSprite()->getPosition();

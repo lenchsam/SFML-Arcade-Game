@@ -13,13 +13,16 @@ namespace LLGP {
         void MoveCamera(sf::Vector2f movement);
         sf::View* m_view;
         void Shoot(float deltaTime, sf::RenderWindow* window);
-        void DrawAllBullets(sf::RenderWindow* window);
 
         void MoveAllBullets();
     private:
         std::vector<Bullet*> _Bullets;
         float m_shootingSpeed = 0.5f;
         float m_time = 0;
+
+        void DrawAllBullets(sf::RenderWindow* window);
+        void DrawAll(sf::RenderWindow* window);
+        SpriteRenderer* playerSpriteRenderer;
     };
 }
 

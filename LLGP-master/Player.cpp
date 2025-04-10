@@ -3,15 +3,18 @@
 #include "CircleCollider.h"
 #include "PlayerCharacter.h"
 #include "Physics.h"
+#include "SpriteRenderer.h"
+
 namespace LLGP {
 	Player::Player(sf::View* view) {
-		SpriteRenderer* playerSpriteRenderer = AddComponent<LLGP::SpriteRenderer>();
+		playerSpriteRenderer = AddComponent<LLGP::SpriteRenderer>();
 		playerSpriteRenderer->LoadTexture("assets/sprites/PLAYER.png");
 		AddComponent<PlayerCharacter>();
 		AddComponent<CircleCollider>();
 		m_view = view;
 
 		Physics::OnStepPhysics += std::bind(&Player::MoveAllBullets, this);
+		SpriteRenderer::RenderSprite += std::bind(&Player::DrawAll, this, std::placeholders::_1);
 		
 	}
 	Player::~Player() {
@@ -36,9 +39,15 @@ namespace LLGP {
 	}
 
 	void Player::DrawAllBullets(sf::RenderWindow* window) {
+		//std::cout << "draw bullets" << std::endl;
 		for (auto bullet : _Bullets) {
 			bullet->GetComponent<SpriteRenderer>()->Draw(window);
 		}
+	}
+
+	void Player::DrawAll(sf::RenderWindow* window) {
+		DrawAllBullets(window);
+		playerSpriteRenderer->Draw(window);
 	}
 
 	void Player::MoveAllBullets() {

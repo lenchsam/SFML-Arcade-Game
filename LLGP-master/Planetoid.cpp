@@ -3,15 +3,25 @@
 #include "Bullet.h"
 #include "Spawner.h"
 #include "Crystal.h"
+#include "SpriteRenderer.h"
+
 namespace LLGP {
 	Planetoid::Planetoid() {
 		circleCollider->SetRadius(25.f);
-		
+
 		//TODO: SET RANDOM NUMBER OF CRYSTALS BETWEEN 1 AND 10
+
+		//SpriteRenderer::RenderSprite += std::bind(&Planetoid::Drawing, this, std::placeholders::_1);
 	}
 	Planetoid::~Planetoid() {
 
 	}
+
+	//void Planetoid::Drawing(sf::RenderWindow* window) {
+	//	std::cout << "drawing planetoid" << std::endl;
+	//	spriteRenderer->Draw(window);
+	//}
+
 	void Planetoid::OnCollision(GameObject* other) {
 
 		Bullet* bullet = dynamic_cast<Bullet*>(other);

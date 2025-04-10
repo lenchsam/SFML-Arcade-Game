@@ -9,6 +9,8 @@ namespace LLGP {
         Planetoid();
         ~Planetoid();
 
+        //void Drawing(sf::RenderWindow* window);
+
         void OnCollision(GameObject* other);
         void Init() override;
 

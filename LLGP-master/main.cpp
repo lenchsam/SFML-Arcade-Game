@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Physics.h"
 
+
 #ifdef _DEBUG
 int main()
 #else
@@ -69,8 +70,10 @@ int WinMain()
         window.setView(view);
 
         //draw player and bullets
-        player->GetComponent<LLGP::SpriteRenderer>()->Draw(&window);
-        player->DrawAllBullets(&window);
+        //player->GetComponent<LLGP::SpriteRenderer>()->Draw(&window);
+        //player->DrawAllBullets(&window);
+
+        LLGP::SpriteRenderer::RenderSprite(&window);
         
         //spawn enemies
         spawner->Spawn(&window);

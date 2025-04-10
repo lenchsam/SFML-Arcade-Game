@@ -6,6 +6,6 @@ namespace LLGP {
 		spriteRenderer = AddComponent<SpriteRenderer>();
 		AddComponent<CircleCollider>()->SetRadius(7);
 		spriteRenderer->LoadTexture("assets/sprites/EXTRA_LIFE.png");
-		spriteRenderer->GetSprite()->setScale({ 20.f, 20.f });
+		spriteRenderer->GetSprite()->setScale({ 2.f, 2.f });
 	}
 }

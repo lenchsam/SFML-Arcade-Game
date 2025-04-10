@@ -118,7 +118,7 @@
       <Filter>Source Files\Objects\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Crystal.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -486,7 +486,7 @@
       <Filter>Header Files\Objects\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Crystal.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
