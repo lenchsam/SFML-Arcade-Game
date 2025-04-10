@@ -47,6 +47,5 @@ namespace LLGP {
 		std::cout << "Worker Drone is destroyed" << std::endl;
 		spawner->DestroyWarriorDroneFromList(this);
 		SetActive(false);
-
 	}
 }

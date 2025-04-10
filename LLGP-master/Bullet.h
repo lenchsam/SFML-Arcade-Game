@@ -10,6 +10,7 @@ namespace LLGP {
     public:
         Bullet(bool firedByPlayer);
         ~Bullet();
+
         void SetPlayer(Player* player);
         Transform* transform;
 

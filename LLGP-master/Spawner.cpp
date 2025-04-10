@@ -65,7 +65,13 @@ namespace LLGP {
     void Spawner::DestroyWarriorDroneFromList(GameObject* enemy) {
         WarriorDrones.erase(std::remove(WarriorDrones.begin(), WarriorDrones.end(), enemy), WarriorDrones.end());
     }
-
+    void Spawner::DestroyPlanetoidFromList(GameObject* enemy) {
+        Planetoids.erase(std::remove(Planetoids.begin(), Planetoids.end(), enemy), Planetoids.end());
+    }
+    void Spawner::DestroyWorkerDroneFromList(GameObject* enemy) {
+        WorkerDrones.erase(std::remove(WorkerDrones.begin(), WorkerDrones.end(), enemy), WorkerDrones.end());
+    }
+    
     sf::Vector2f Spawner::GetRandomPosition() {
         
         //sf::Vector2f playerPosition = player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();

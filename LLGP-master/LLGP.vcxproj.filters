@@ -117,6 +117,9 @@
     <ClCompile Include="Planetoid.cpp">
       <Filter>Source Files\Objects\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Crystal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="packages\SFML\include\SFML\Audio.hpp">
@@ -481,6 +484,9 @@
     </ClInclude>
     <ClInclude Include="Planetoid.h">
       <Filter>Header Files\Objects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Crystal.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

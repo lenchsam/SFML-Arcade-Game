@@ -8,9 +8,10 @@ namespace LLGP {
     public:
         WarriorDrone();
         ~WarriorDrone();
+
         void Init() override;
 
-        void DestroyThis(Spawner* spawner) ;
+        void DestroyThis(Spawner* spawner) override;
         void GoToTarget(GameObject* player) override;
     private:
         float minDistnaceFromPlayer = 50.f;
