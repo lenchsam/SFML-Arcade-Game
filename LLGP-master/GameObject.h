@@ -24,7 +24,7 @@ namespace LLGP {
 		inline bool CompareTag(std::string comp) { return m_Tag == comp; }
 
 		static inline LLGP::Event<> OnWorldFixedUpdate;
-		static inline LLGP::Event<> OnWorldEndFrame; 
+		static inline LLGP::Event<> OnWorldEndFrame;
 
 		template<class T> requires isComponent<T> T* GetComponent() {
 			T* returnComp = nullptr;

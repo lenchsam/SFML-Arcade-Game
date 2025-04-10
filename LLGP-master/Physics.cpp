@@ -40,7 +40,7 @@ namespace LLGP {
 
 			for (size_t j = i + 1; j < _Colliders.size(); ++j) {
 
-				if (CheckCircleCollision(_Colliders[i], _Colliders[j])) {
+				if (CheckCircleCollision(_Colliders[i], _Colliders[j]) && _Colliders[i]->isActive && _Colliders[j]->isActive) {
 					//collision detected between Colliders[i], _Colliders[j]
 					//std::cout << "collission detected" << std::endl;
 					_Colliders[i]->_GameObject->OnCollision(_Colliders[j]->_GameObject);

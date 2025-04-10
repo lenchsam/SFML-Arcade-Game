@@ -11,10 +11,6 @@ namespace LLGP {
 		delete m_sprite;
 	}
 
-	void SpriteRenderer::OwnerActiveChange(bool newActive) {
-		canDraw = false;
-	}
-
 	void SpriteRenderer::SetSprite(sf::Sprite* sprite) 
 	{
 		m_sprite = sprite;
@@ -47,7 +43,7 @@ namespace LLGP {
 	}
 	void SpriteRenderer::Draw(sf::RenderWindow* window) 
 	{
-		if (m_sprite != nullptr && canDraw == true)
+		if (m_sprite != nullptr && isActive == true)
 		{
 			//std::cout << "drawing to screen" << std::endl;
 			window->draw(*m_sprite);

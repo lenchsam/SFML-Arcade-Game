@@ -12,7 +12,6 @@ namespace LLGP {
 		m_Tag = "Default";
 		transform = AddComponent<Transform>();
 
-		GameObject::OnWorldEndFrame += std::bind(&GameObject::OnEndFrame, this);
 
 	}
 
@@ -28,11 +27,6 @@ namespace LLGP {
 
 	void GameObject::OnCollision(GameObject* other) {
 
-	}
-	void GameObject::OnEndFrame() {
-		//if (isDestroyed) {
-		//	DestroyThis();
-		//}
 	}
 	void GameObject::DestroyThis(Spawner* spawner) {
 		

@@ -13,9 +13,9 @@ namespace LLGP {
 
         GameObject* GetGameObjects() { return _GameObject; }
 
-        virtual void OwnerActiveChange(bool newActive) {};
+        void OwnerActiveChange(bool newActive) { isActive = newActive; }
+        bool isActive = true;
 
-        virtual void OnwerActiveChange(bool newActive) {}
     protected:
         GameObject* _GameObject;
     };
