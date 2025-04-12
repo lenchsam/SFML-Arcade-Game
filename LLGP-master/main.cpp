@@ -5,6 +5,7 @@
 #include "Spawner.h"
 #include "Player.h"
 #include "Physics.h"
+#include "CrystalManager.h"
 
 #ifdef _DEBUG
 int main()
@@ -21,6 +22,7 @@ int WinMain()
 
     // initialise player gameobject
     LLGP::Player* player = new LLGP::Player(&view);
+    LLGP::CrystalManager* crystalManager = new LLGP::CrystalManager(&window);
 
 
     //initialise the spawner gameobject
@@ -77,6 +79,8 @@ int WinMain()
         //spawn enemies
         spawner->Spawn(&window);
         spawner->DrawAllEnemies(&window);
+        
+        crystalManager->DrawAllCrystals();
 
         window.display();
 
