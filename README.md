@@ -19,12 +19,11 @@ This project is intended to be a clone of the arcade game sinistar. I was tasked
  - Full gameobject and component system with multiple components including sprite renderer, transform, health and more.
  - Collisions
  - Enemy Spawning
+ - Resource Collection
 
 ## Future Features
 
  - UI
- - Enemy Death
- - Resources
  - Scenes
  - Crafting Bombs
  - Sinistar Boss
