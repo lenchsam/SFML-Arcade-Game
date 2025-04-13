@@ -22,7 +22,7 @@ int WinMain()
 
     // initialise player gameobject
     LLGP::Player* player = new LLGP::Player(&view);
-    LLGP::CrystalManager* crystalManager = new LLGP::CrystalManager(&window);
+    LLGP::CrystalManager* crystalManager = new LLGP::CrystalManager();
 
 
     //initialise the spawner gameobject
@@ -70,17 +70,13 @@ int WinMain()
 
         window.setView(view);
 
-        //draw player and bullets
-        //player->GetComponent<LLGP::SpriteRenderer>()->Draw(&window);
-        //player->DrawAllBullets(&window);
-
         LLGP::SpriteRenderer::RenderSprite(&window);
         
         //spawn enemies
         spawner->Spawn(&window);
         spawner->DrawAllEnemies(&window);
         
-        crystalManager->DrawAllCrystals();
+        crystalManager->DrawAllCrystals(&window);
 
         window.display();
 

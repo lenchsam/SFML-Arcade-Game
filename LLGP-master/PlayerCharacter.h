@@ -13,6 +13,9 @@ namespace LLGP {
 	private:
 		float _speed;
 		GameObject* _GameObject;
+
+		float _bombCooldown = 2.f;
+		float _timeSinceLastBomb = 0.f;
 	};
 }
 

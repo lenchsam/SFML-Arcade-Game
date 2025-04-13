@@ -6,17 +6,19 @@ namespace LLGP {
 	class CrystalManager
 	{
 	public:
-		CrystalManager(sf::RenderWindow* _window);
+		CrystalManager();
 		~CrystalManager();
 		void RegisterNewCrystal(Crystal* crystal);
 		void RemoveCrystal(Crystal* crystal);
 		void GetClosestCrystal(sf::Vector2f pos);
-		void DrawAllCrystals();
+		void DrawAllCrystals(sf::RenderWindow* window);
 
 		static inline LLGP::Event<Crystal*> OnSpawnedCrystal;
+		static inline LLGP::Event<Crystal*> OnCollectedCrystal;
 
 	private:
 		std::vector<Crystal*> allCrystals;
-		sf::RenderWindow* window;
+
+		int crystalsCollected = 0;
 	};
 }

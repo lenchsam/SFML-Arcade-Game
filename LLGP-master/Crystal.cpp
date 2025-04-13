@@ -3,6 +3,7 @@
 #include <iostream>
 #include <random>
 #include "CrystalManager.h"
+#include "Player.h"
 namespace LLGP {
 	Crystal::Crystal(sf::Vector2f pos) {
 		transform = AddComponent<Transform>();
@@ -27,5 +28,21 @@ namespace LLGP {
 		int randomY = distrib(gen);
 
 		spriteRenderer->GetSprite()->setPosition({pos.x + randomX, pos.y + randomY });
+	}
+
+	void Crystal::OnCollision(GameObject* other) {
+
+		Player* player = dynamic_cast<Player*>(other);
+
+		if (player) {
+			//if other object is the player
+			std::cout << "other is player - from crystal" << std::endl;
+			Collected();
+
+		}
+	}
+	
+	void Crystal::Collected() {
+		CrystalManager::OnCollectedCrystal(this);
 	}
 }

@@ -2,15 +2,14 @@
 #include "SpriteRenderer.h"
 #include "Crystal.h"
 namespace LLGP {
-	CrystalManager::CrystalManager(sf::RenderWindow* _window) {
+	CrystalManager::CrystalManager() {
 		CrystalManager::OnSpawnedCrystal += std::bind(&CrystalManager::RegisterNewCrystal, this, std::placeholders::_1);
+		CrystalManager::OnCollectedCrystal += std::bind(&CrystalManager::RemoveCrystal, this, std::placeholders::_1);
 
-		window = _window;
 	}
 	CrystalManager::~CrystalManager() {
-
 	}
-	void CrystalManager::DrawAllCrystals() {
+	void CrystalManager::DrawAllCrystals(sf::RenderWindow* window) {
 		for (auto crystal : allCrystals) {
 			crystal->GetComponent<SpriteRenderer>()->Draw(window);
 		}
@@ -18,6 +17,13 @@ namespace LLGP {
 
 	void CrystalManager::RegisterNewCrystal(Crystal* crystal) {
 		allCrystals.push_back(crystal);
+	}
+
+	void CrystalManager::RemoveCrystal(Crystal* crystal) {
+		allCrystals.erase(std::remove(allCrystals.begin(), allCrystals.end(), crystal), allCrystals.end());
+		crystal->SetActive(false);
+
+		crystalsCollected++;
 	}
 
 }

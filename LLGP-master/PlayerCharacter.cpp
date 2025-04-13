@@ -30,5 +30,10 @@ namespace LLGP {
 			_GameObject->transform->ChangePosition({ 1, 0  });
 			player->MoveCamera({ 1, 0 });
 		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::F))
+		{
+			//throw bomb
+			std::cout << "threw bomb" << std::endl;
+		}
 	}
 }
