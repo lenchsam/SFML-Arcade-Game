@@ -55,6 +55,12 @@
     <Filter Include="Header Files\Objects\Enemies">
       <UniqueIdentifier>{63088cd0-5d99-4b4b-8df9-a2db8c4f9864}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\StateMachine">
+      <UniqueIdentifier>{eada9b82-28aa-43c4-9d8e-0ce728f33883}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\StateMachine">
+      <UniqueIdentifier>{b71cd7d1-da61-42ed-ac8a-403126272327}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -125,6 +131,15 @@
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Source Files\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="IGameState.cpp">
+      <Filter>Source Files\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayState.cpp">
+      <Filter>Source Files\StateMachine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -499,6 +514,15 @@
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Header Files\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayState.h">
+      <Filter>Header Files\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameState.h">
+      <Filter>Header Files\StateMachine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

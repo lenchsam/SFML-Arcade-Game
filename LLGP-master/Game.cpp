@@ -4,6 +4,8 @@
 #include "PlayerCharacter.h"
 #include "Spawner.h"
 #include "CrystalManager.h"
+#include "GameplayState.h"
+#include <memory>
 
 #define FIXEDFRAMERATE 60
 const float FIXED_UPDATE_TIMER = 1.0f / 60.0f;
@@ -15,10 +17,11 @@ namespace LLGP {
         view = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
         mapBounds = sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }); // For example, a 1000x1000 world
 
-        //INITIALISE ALL GAMEOBJECTS
-        player = new Player(view);
-        crystalManager = new CrystalManager();
-        spawner = new Spawner(player);
+        auto gameplayState = std::make_unique<GameplayState>(
+            &this->window, 
+            this->view 
+        );
+        stateManager.InitialiseStateMachine(std::move(gameplayState));
     }
 
     static std::chrono::steady_clock::time_point lastFixedUpdate = std::chrono::steady_clock::now();
@@ -42,43 +45,20 @@ namespace LLGP {
             auto timeSinceFixedUpdate = std::chrono::duration<float>(now - lastFixedUpdate).count();
 
             if (timeSinceFixedUpdate > FIXED_UPDATE_TIMER) {
-                FixedUpdate();
+                stateManager.FixedUpdate();
                 lastFixedUpdate = now;
             }
 
-            Update(deltaTime);
+            stateManager.Update(deltaTime);
             Render();
         }
-    }
-
-    void Game::Update(float deltaTime) {
-        // Update game logic here
-
-        player->Shoot(deltaTime, &window);
-
-
-    }
-
-    void Game::FixedUpdate() {
-        LLGP::Physics::StepPhysics();
-
-        LLGP::Physics::CheckCollisions();
-
-        player->GetComponent<LLGP::PlayerCharacter>()->Input(player);
-
-        player->transform->RotateTowardsMouse(&window);
-        spawner->RotateTowardsPlayer(player);
     }
 
     void Game::Render() {
         window.clear();
         window.setView(*view);
 
-        LLGP::SpriteRenderer::RenderSprite(&window);
-
-        spawner->Spawn(&window);
-        spawner->DrawAllEnemies(&window);
-        crystalManager->DrawAllCrystals(&window);
+        stateManager.Render(&window);
 
         window.display();    
         GameObject::OnWorldEndFrame();
