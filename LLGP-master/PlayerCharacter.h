@@ -11,7 +11,7 @@ namespace LLGP {
 
 		void Input(Player* player);
 	private:
-		float _speed;
+		float _speed = 2.f;
 		GameObject* _GameObject;
 
 		float _bombCooldown = 2.f;
