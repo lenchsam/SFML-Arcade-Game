@@ -38,6 +38,9 @@ namespace LLGP {
         Player* player;
         Spawner* spawner;
         CrystalManager* crystalManager;
+
+        sf::View* UIView;
+        sf::Font font;
     };
 
 }

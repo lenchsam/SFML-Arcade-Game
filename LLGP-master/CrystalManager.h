@@ -12,6 +12,7 @@ namespace LLGP {
 		void RemoveCrystal(Crystal* crystal);
 		void GetClosestCrystal(sf::Vector2f pos);
 		void DrawAllCrystals(sf::RenderWindow* window);
+		int GetCrystalNumber();
 
 		static inline LLGP::Event<Crystal*> OnSpawnedCrystal;
 		static inline LLGP::Event<Crystal*> OnCollectedCrystal;

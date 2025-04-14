@@ -15,6 +15,10 @@ namespace LLGP {
 		}
 	}
 
+	int CrystalManager::GetCrystalNumber() {
+		return crystalsCollected;
+	}
+
 	void CrystalManager::RegisterNewCrystal(Crystal* crystal) {
 		allCrystals.push_back(crystal);
 	}

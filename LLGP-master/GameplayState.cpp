@@ -12,6 +12,7 @@ namespace LLGP{
 	void GameplayState::OnEnter(StateManager* manager) {
 		std::cout << "Entering Gameplay State\n";
 
+		UIView = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
 		//load all scene data
 		//create player
 		//reset score
@@ -19,6 +20,11 @@ namespace LLGP{
 		player = new Player(view);
 		crystalManager = new CrystalManager();
 		spawner = new Spawner(player);
+
+		if (!font.openFromFile("assets/CutePixel.ttf"))
+		{
+			std::cout << "cannot load font" << std::endl;
+		}
 	}
 	void GameplayState::OnExit() {
 		std::cout << "Exiting Gameplay State\n";
@@ -47,5 +53,20 @@ namespace LLGP{
 		spawner->Spawn(window);
 		spawner->DrawAllEnemies(window);
 		crystalManager->DrawAllCrystals(window);
+
+		//render UI Here
+		window->setView(*UIView);
+
+		sf::Text text(font);
+
+		std::stringstream ss;
+		ss << crystalManager->GetCrystalNumber();
+		text.setString("Crystals Collected: " + ss.str());
+		text.setCharacterSize(35);
+		text.setFillColor(sf::Color::White);
+
+		window->draw(text);
+
+		window->setView(*view);
 	}
 }
