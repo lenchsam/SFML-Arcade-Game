@@ -143,6 +143,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameplayState.cpp" />
     <ClCompile Include="IGameState.cpp" />
+    <ClCompile Include="MakeSound.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Planetoid.cpp" />
     <ClCompile Include="StateManager.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameplayState.h" />
     <ClInclude Include="IGameState.h" />
+    <ClInclude Include="MakeSound.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Planetoid.h" />
     <ClInclude Include="StateManager.h" />

@@ -4,6 +4,8 @@
 #include "PlayerCharacter.h"
 #include "Physics.h"
 #include "SpriteRenderer.h"
+#include "MakeSound.h"
+
 
 namespace LLGP {
 	Player::Player(sf::View* view) {
@@ -26,8 +28,10 @@ namespace LLGP {
 	void Player::Shoot(float deltaTime, sf::RenderWindow *window) {
 		m_time += deltaTime;
 
+
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
 			if (m_time >= m_shootingSpeed) {
+				MakeSound::PlaySound("Gun.wav");
 				Bullet* bullet = new Bullet(true);
 				bullet->Fire(this, window);
 

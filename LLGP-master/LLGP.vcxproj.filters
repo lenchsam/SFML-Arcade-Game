@@ -141,6 +141,9 @@
     <ClCompile Include="GameplayState.cpp">
       <Filter>Source Files\StateMachine</Filter>
     </ClCompile>
+    <ClCompile Include="MakeSound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="packages\SFML\include\SFML\Audio.hpp">
@@ -523,6 +526,9 @@
     </ClInclude>
     <ClInclude Include="IGameState.h">
       <Filter>Header Files\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="MakeSound.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

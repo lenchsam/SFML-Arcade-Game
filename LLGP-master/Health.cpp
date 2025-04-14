@@ -1,5 +1,7 @@
 #include "Health.h"
 #include "GameObject.h"
+#include "MakeSound.h"
+
 LLGP::Health::Health(GameObject* owner) {
 	_GameObject = owner;
 	m_health = 100.f;
@@ -16,6 +18,8 @@ void LLGP::Health::DealDamage(float damage) {
 }
 void LLGP::Health::Die() {
 	isDestroyed = true;
+
+	MakeSound::PlaySound("Crunch.wav");
 
 	OnEnemyDeath(_GameObject);
 	//_GameObject->DestroyThis();

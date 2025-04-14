@@ -7,6 +7,8 @@
 #include "GameplayState.h"
 #include <memory>
 
+#include "MakeSound.h"
+
 #define FIXEDFRAMERATE 60
 const float FIXED_UPDATE_TIMER = 1.0f / 60.0f;
 
@@ -22,7 +24,10 @@ namespace LLGP {
             this->view 
         );
         stateManager.InitialiseStateMachine(std::move(gameplayState));
+
+		MakeSound::LoadAllSounds("Assets/AUDIO");
     }
+    
 
     static std::chrono::steady_clock::time_point lastFixedUpdate = std::chrono::steady_clock::now();
 
@@ -60,7 +65,7 @@ namespace LLGP {
 
         stateManager.Render(&window);
 
-        window.display();    
+        window.display();
         GameObject::OnWorldEndFrame();
     }
 
