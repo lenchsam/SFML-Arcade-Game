@@ -63,7 +63,6 @@ namespace LLGP{
 		ss << crystalManager->GetCrystalNumber();
 		text.setString("Crystals Collected: " + ss.str());
 		text.setCharacterSize(35);
-		text.setFillColor(sf::Color::White);
 
 		window->draw(text);
 

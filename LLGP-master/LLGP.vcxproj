@@ -146,6 +146,7 @@
     <ClCompile Include="MakeSound.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Planetoid.cpp" />
+    <ClCompile Include="Scoring.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="WarriorDrone.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="MakeSound.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Planetoid.h" />
+    <ClInclude Include="Scoring.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="WarriorDrone.h" />
     <ClInclude Include="Bullet.h" />

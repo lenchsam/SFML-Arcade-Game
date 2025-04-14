@@ -1,6 +1,7 @@
 #include "CrystalManager.h"
 #include "SpriteRenderer.h"
 #include "Crystal.h"
+#include "Scoring.h"
 namespace LLGP {
 	CrystalManager::CrystalManager() {
 		CrystalManager::OnSpawnedCrystal += std::bind(&CrystalManager::RegisterNewCrystal, this, std::placeholders::_1);
@@ -15,6 +16,12 @@ namespace LLGP {
 		}
 	}
 
+	void CrystalManager::CreateBomb() {
+		if (crystalsCollected >= crystalsForBomb) {
+			numBombs++;
+		}
+	}
+
 	int CrystalManager::GetCrystalNumber() {
 		return crystalsCollected;
 	}
@@ -26,6 +33,9 @@ namespace LLGP {
 	void CrystalManager::RemoveCrystal(Crystal* crystal) {
 		allCrystals.erase(std::remove(allCrystals.begin(), allCrystals.end(), crystal), allCrystals.end());
 		crystal->SetActive(false);
+
+		Scoring::OnDeath(CRYSTAL);
+		std::cout << "updatedScoreEvent " << std::endl;
 
 		crystalsCollected++;
 	}

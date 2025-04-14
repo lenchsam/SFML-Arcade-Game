@@ -3,6 +3,7 @@
 #include "StateManager.h"
 
 namespace LLGP {
+	class Scoring;
 	class Game
 	{
 	public:
@@ -20,6 +21,8 @@ namespace LLGP {
 		void Render();
 
 		StateManager stateManager;
+
+		Scoring* scoring;
 	};
 }
 
