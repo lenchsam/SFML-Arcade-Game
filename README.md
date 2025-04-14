@@ -26,9 +26,13 @@ This project is intended to be a clone of the arcade game sinistar. I was tasked
 ## Future Features
 
  - UI
+ - MiniMap
  - Scenes
  - Crafting Bombs
  - Sinistar Boss
+ - Score/High Score
+ - Updated Enemy AI
+ - Add Worker Drone
 
 ## Getting Started
 ### Requirements
