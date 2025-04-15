@@ -6,6 +6,7 @@
 #include "CrystalManager.h"
 #include "Spawner.h"
 #include "SpriteRenderer.h"
+#include "UI.h"
 
 namespace LLGP{
 
@@ -57,14 +58,18 @@ namespace LLGP{
 		//render UI Here
 		window->setView(*UIView);
 
-		sf::Text text(font);
+		//sf::Text text(font);
 
-		std::stringstream ss;
-		ss << crystalManager->GetCrystalNumber();
-		text.setString("Crystals Collected: " + ss.str());
-		text.setCharacterSize(35);
+		//std::stringstream ss;
+		//ss << crystalManager->GetCrystalNumber();
+		//text.setString("Crystals Collected: " + ss.str());
+		//text.setCharacterSize(35);
 
-		window->draw(text);
+		UI::AddText("Hello World", { 15.f, 0.f }, 30, sf::Color::White);
+		UI::AddText("HIIIII", { 15.f, 30.f }, 30, sf::Color::White);
+		UI::RenderAllText(window);
+
+		//window->draw(text);
 
 		window->setView(*view);
 	}

@@ -8,7 +8,7 @@
 #include <memory>
 #include "Scoring.h"
 #include "MakeSound.h"
-
+#include "UI.h"
 #define FIXEDFRAMERATE 60
 const float FIXED_UPDATE_TIMER = 1.0f / 60.0f;
 
@@ -19,6 +19,7 @@ namespace LLGP {
         view = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
         mapBounds = sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }); // For example, a 1000x1000 world
 
+		UI::LoadFont();
         scoring = new Scoring(); // initialise scoring system
 
         auto gameplayState = std::make_unique<GameplayState>(
