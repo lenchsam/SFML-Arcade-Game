@@ -12,16 +12,16 @@ namespace LLGP {
         public IGameState
     {
     public:
-        GameplayState(sf::RenderWindow* _window, sf::View* _view) :
-            window(_window),
-            view(_view)
+        GameplayState(sf::RenderWindow* _window) :
+            window(_window)
         {
-            // Constructor body (if needed)
-            std::cout << "GameplayState constructed\n";
+            view = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
+            UIView = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
+            std::cout << "GameplayState constructed" << std::endl;
         }
 
         ~GameplayState() override {
-            std::cout << "gameplaystate destroyed\n"; 
+            std::cout << "gameplaystate destroyed" << std::endl;
 
         }  
 
@@ -32,9 +32,10 @@ namespace LLGP {
         void FixedUpdate() override;
         void Render(sf::RenderWindow* window) override;
 
+    private:
         sf::RenderWindow* window;
 		sf::View* view;
-    private:
+
         Player* player;
         Spawner* spawner;
         CrystalManager* crystalManager;

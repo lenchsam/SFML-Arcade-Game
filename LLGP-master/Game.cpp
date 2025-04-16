@@ -5,6 +5,7 @@
 #include "Spawner.h"
 #include "CrystalManager.h"
 #include "GameplayState.h"
+#include "MainMenuState.h"
 #include <memory>
 #include "Scoring.h"
 #include "MakeSound.h"
@@ -16,17 +17,19 @@ namespace LLGP {
     Game::Game()
         : window(sf::VideoMode({ 1000, 1000 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close) {
 
-        view = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
+        
         mapBounds = sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }); // For example, a 1000x1000 world
 
 		UI::LoadFont();
         scoring = new Scoring(); // initialise scoring system
 
         auto gameplayState = std::make_unique<GameplayState>(
-            &this->window, 
-            this->view 
+            &this->window
         );
-        stateManager.InitialiseStateMachine(std::move(gameplayState));
+        auto mainMenuState = std::make_unique<MainMenuState>(
+            &this->window
+        );
+        stateManager.InitialiseStateMachine(std::move(mainMenuState));
 
 		MakeSound::LoadAllSounds("Assets/AUDIO");
     }
@@ -64,7 +67,6 @@ namespace LLGP {
 
     void Game::Render() {
         window.clear();
-        window.setView(*view);
 
         stateManager.Render(&window);
 

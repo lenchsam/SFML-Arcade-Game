@@ -11,11 +11,8 @@
 namespace LLGP{
 
 	void GameplayState::OnEnter(StateManager* manager) {
-		std::cout << "Entering Gameplay State\n";
+		std::cout << "Entering Gameplay State" << std::endl;
 
-		UIView = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
-		//load all scene data
-		//create player
 		//reset score
 
 		player = new Player(view);
@@ -26,9 +23,12 @@ namespace LLGP{
 		{
 			std::cout << "cannot load font" << std::endl;
 		}
+
+		UI::AddText("Crystals Collected: 0", { 15.f, 0.f }, 30, sf::Color::White);
+		UI::AddText("HIIIII", { 15.f, 30.f }, 30, sf::Color::White);
 	}
 	void GameplayState::OnExit() {
-		std::cout << "Exiting Gameplay State\n";
+		std::cout << "Exiting Gameplay State" << std::endl;
 
 		//unload scene
 	}
@@ -49,6 +49,7 @@ namespace LLGP{
 		spawner->RotateTowardsPlayer(player);
 	}
 	void GameplayState::Render(sf::RenderWindow* window) {
+		window->setView(*view);
 		LLGP::SpriteRenderer::RenderSprite(window);
 
 		spawner->Spawn(window);
@@ -58,18 +59,10 @@ namespace LLGP{
 		//render UI Here
 		window->setView(*UIView);
 
-		//sf::Text text(font);
+		std::stringstream ss;
+		ss << crystalManager->GetCrystalNumber();
 
-		//std::stringstream ss;
-		//ss << crystalManager->GetCrystalNumber();
-		//text.setString("Crystals Collected: " + ss.str());
-		//text.setCharacterSize(35);
-
-		UI::AddText("Hello World", { 15.f, 0.f }, 30, sf::Color::White);
-		UI::AddText("HIIIII", { 15.f, 30.f }, 30, sf::Color::White);
 		UI::RenderAllText(window);
-
-		//window->draw(text);
 
 		window->setView(*view);
 	}

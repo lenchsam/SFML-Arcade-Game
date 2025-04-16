@@ -137,12 +137,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BoxCollider.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Crystal.cpp" />
     <ClCompile Include="CrystalManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameplayState.cpp" />
     <ClCompile Include="IGameState.cpp" />
+    <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="MakeSound.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Planetoid.cpp" />
@@ -168,12 +170,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxCollider.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Crystal.h" />
     <ClInclude Include="CrystalManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameplayState.h" />
     <ClInclude Include="IGameState.h" />
+    <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="MakeSound.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Planetoid.h" />

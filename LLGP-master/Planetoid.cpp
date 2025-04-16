@@ -4,6 +4,7 @@
 #include "Spawner.h"
 #include "Crystal.h"
 #include "SpriteRenderer.h"
+#include "Scoring.h"
 
 namespace LLGP {
 	Planetoid::Planetoid() {
@@ -62,6 +63,7 @@ namespace LLGP {
 
 		spawner->DestroyPlanetoidFromList(this);
 
+		Scoring::OnDeath(PLANETOID);
 
 		SetActive(false);
 	}

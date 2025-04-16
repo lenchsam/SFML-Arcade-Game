@@ -12,9 +12,11 @@ void UI::LoadFont() {
 void UI::AddText(std::string text, sf::Vector2f position, int size, sf::Color color) {
     sf::Text textObj(font);
     textObj.setString(text);
+    textObj.setOrigin({ textObj.getLocalBounds().size.x / 2.0f, textObj.getLocalBounds().size.x / 2.0f });
     textObj.setCharacterSize(size);
     textObj.setFillColor(color);
     textObj.setPosition(position);
+
     texts.push_back(textObj);
 
     //std::cout << "Displaying text: " << text << std::endl;
