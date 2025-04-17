@@ -23,13 +23,16 @@ namespace LLGP {
 		UI::LoadFont();
         scoring = new Scoring(); // initialise scoring system
 
+        //initialise all game states
         auto gameplayState = std::make_unique<GameplayState>(
             &this->window
         );
         auto mainMenuState = std::make_unique<MainMenuState>(
             &this->window
         );
-        stateManager.InitialiseStateMachine(std::move(mainMenuState));
+
+        //initialises state machine with the first state.
+        stateManager.InitialiseStateMachine(std::move(gameplayState));
 
 		MakeSound::LoadAllSounds("Assets/AUDIO");
     }

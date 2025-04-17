@@ -24,8 +24,8 @@ namespace LLGP{
 			std::cout << "cannot load font" << std::endl;
 		}
 
-		UI::AddText("Crystals Collected: 0", { 15.f, 0.f }, 30, sf::Color::White);
-		UI::AddText("HIIIII", { 15.f, 30.f }, 30, sf::Color::White);
+		CrystalText = UI::AddTextRef("Crystals Collected: 0", { 15.f, 0.f }, 30, sf::Color::White);
+		//UI::AddText("HIIIII", { 15.f, 30.f }, 30, sf::Color::White);
 	}
 	void GameplayState::OnExit() {
 		std::cout << "Exiting Gameplay State" << std::endl;
@@ -61,6 +61,7 @@ namespace LLGP{
 
 		std::stringstream ss;
 		ss << crystalManager->GetCrystalNumber();
+		UI::UpdateText(CrystalText, "Crystals Collected: 1");
 
 		UI::RenderAllText(window);
 

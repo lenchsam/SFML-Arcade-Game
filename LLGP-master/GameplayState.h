@@ -35,13 +35,15 @@ namespace LLGP {
     private:
         sf::RenderWindow* window;
 		sf::View* view;
+        sf::View* UIView;
 
         Player* player;
         Spawner* spawner;
         CrystalManager* crystalManager;
 
-        sf::View* UIView;
         sf::Font font;
+
+        sf::Text* CrystalText;
     };
 
 }

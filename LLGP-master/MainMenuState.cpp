@@ -3,9 +3,9 @@
 
 namespace LLGP {
 	void MainMenuState::OnEnter(StateManager* manager) {
-		UI::AddText("PLAY", { 500.f, 470.f }, 30, sf::Color::White);
-		UI::AddText("OPTIONS", { 500.f, 550.f }, 30, sf::Color::White);
-		UI::AddText("QUIT", { 500.f, 560.f }, 30, sf::Color::White);
+		UI::AddText("Play", { 500.f, 500.f }, 30, sf::Color::White);
+		//UI::AddText("OPTIONS", { 500.f, 530.f }, 30, sf::Color::White);
+		UI::AddText("Quit", { 500.f, 560.f }, 30, sf::Color::White);
 	}
 	void MainMenuState::OnExit() {
 
