@@ -1,13 +1,15 @@
 #pragma once
 #include "IGameState.h"
 #include <SFML/Graphics.hpp>
+#include "StateManager.h"
+
 namespace LLGP {
-    class StateManager;
+    class Button;
     class MainMenuState :
         public IGameState
     {
     public:
-        MainMenuState(sf::RenderWindow* _window) : window(_window) {
+        MainMenuState(sf::RenderWindow* _window, StateManager* manager) : window(_window), stateManager(manager) {
             std::cout << "MainMenuState constructed" << std::endl;
             view = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
         }
@@ -26,6 +28,10 @@ namespace LLGP {
     private:
         sf::RenderWindow* window;
         sf::View* view;
+
+        StateManager* stateManager = nullptr;
+        Button* playButton;
+        Button* quitButton;
     };
 }
 

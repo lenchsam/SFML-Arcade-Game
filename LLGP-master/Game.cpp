@@ -4,7 +4,6 @@
 #include "PlayerCharacter.h"
 #include "Spawner.h"
 #include "CrystalManager.h"
-#include "GameplayState.h"
 #include "MainMenuState.h"
 #include <memory>
 #include "Scoring.h"
@@ -16,7 +15,6 @@ const float FIXED_UPDATE_TIMER = 1.0f / 60.0f;
 namespace LLGP {
     Game::Game()
         : window(sf::VideoMode({ 1000, 1000 }), "SFML works!", sf::Style::Titlebar | sf::Style::Close) {
-
         
         mapBounds = sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }); // For example, a 1000x1000 world
 
@@ -24,15 +22,13 @@ namespace LLGP {
         scoring = new Scoring(); // initialise scoring system
 
         //initialise all game states
-        auto gameplayState = std::make_unique<GameplayState>(
-            &this->window
-        );
-        auto mainMenuState = std::make_unique<MainMenuState>(
-            &this->window
+        std::unique_ptr<LLGP::MainMenuState> mainMenuState = std::make_unique<MainMenuState>(
+            &this->window,
+            &this->stateManager
         );
 
         //initialises state machine with the first state.
-        stateManager.InitialiseStateMachine(std::move(gameplayState));
+        stateManager.InitialiseStateMachine(std::move(mainMenuState));
 
 		MakeSound::LoadAllSounds("Assets/AUDIO");
     }
@@ -60,6 +56,7 @@ namespace LLGP {
 
             if (timeSinceFixedUpdate > FIXED_UPDATE_TIMER) {
                 stateManager.FixedUpdate();
+                stateManager.HandleInput();
                 lastFixedUpdate = now;
             }
 

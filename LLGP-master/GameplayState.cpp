@@ -43,8 +43,6 @@ namespace LLGP{
 
 		LLGP::Physics::CheckCollisions();
 
-		HandleInput();
-
 		player->transform->RotateTowardsMouse(window);
 		spawner->RotateTowardsPlayer(player);
 	}
