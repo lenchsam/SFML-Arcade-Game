@@ -41,9 +41,16 @@ namespace LLGP {
         Spawner* spawner;
         CrystalManager* crystalManager;
 
-        sf::Font font;
+		void UpdateScoreText(int currentScore);
+		void UpdateBombText();
+		void UpdateCrystalText();
+        //index of ui text that will need to be updated
+		//needed to call UI::UpdateText
+        int scoreTextIndex;
+        int bombTextIndex;
+        int crystalTextIndex;
 
-        sf::Text* CrystalText;
+        sf::Font font;
     };
 
 }

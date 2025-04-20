@@ -7,6 +7,7 @@
 #include "Spawner.h"
 #include "SpriteRenderer.h"
 #include "UI.h"
+#include "Scoring.h"
 
 namespace LLGP{
 
@@ -24,7 +25,14 @@ namespace LLGP{
 			std::cout << "cannot load font" << std::endl;
 		}
 
-		CrystalText = UI::AddTextRef("Crystals Collected: 0", { 15.f, 0.f }, 30, sf::Color::White);
+		crystalTextIndex = UI::AddText("Crystals Collected: 0", { 75.f, 75.f }, 30, sf::Color::White, false);
+		scoreTextIndex = UI::AddText("Score: 0", { 75.f, 100.f }, 30, sf::Color::White, false);
+		bombTextIndex = UI::AddText("Bombs: 0", { 75.f, 125.f }, 30, sf::Color::White, false);
+
+		CrystalManager::OnMadeBomb += std::bind(&GameplayState::UpdateBombText, this);
+		CrystalManager::OnCollectedCrystal += std::bind(&GameplayState::UpdateCrystalText, this);
+		Scoring::ScoreChanged += std::bind(&GameplayState::UpdateScoreText, this, std::placeholders::_1);
+
 	}
 	void GameplayState::OnExit() {
 		std::cout << "Exiting Gameplay State" << std::endl;
@@ -56,12 +64,24 @@ namespace LLGP{
 		//render UI Here
 		window->setView(*UIView);
 
-		std::stringstream ss;
-		ss << crystalManager->GetCrystalNumber();
-		UI::UpdateText(CrystalText, "Crystals Collected: 1");
-
 		UI::RenderAllText(window);
 
 		window->setView(*view);
+	}
+
+	void GameplayState::UpdateScoreText(int currentScore) {
+		std::stringstream ss;
+		ss << "Score: " << currentScore;
+		UI::UpdateText(scoreTextIndex, ss.str());
+	}
+	void GameplayState::UpdateBombText() {
+		std::stringstream ss;
+		ss << "Bombs: " << crystalManager->GetBombNumber();
+		UI::UpdateText(bombTextIndex, ss.str());
+	}
+	void GameplayState::UpdateCrystalText() {
+		std::stringstream ss;
+		ss << "Crystals Collected: " << crystalManager->GetCrystalNumber();
+		UI::UpdateText(crystalTextIndex, ss.str());
 	}
 }

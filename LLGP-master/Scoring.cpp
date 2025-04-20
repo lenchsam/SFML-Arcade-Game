@@ -22,6 +22,7 @@ namespace LLGP {
 	void Scoring::SetScore(enum ScoreGivers scoreToAdd) {
 		currentScore += scores[scoreToAdd];
 		std::cout << "new score is " << currentScore << std::endl;
+		ScoreChanged(currentScore);
 	}
 	void Scoring::ResetScore() {
 		currentScore = 0;

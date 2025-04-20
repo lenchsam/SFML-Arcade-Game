@@ -13,10 +13,12 @@ namespace LLGP {
 		void GetClosestCrystal(sf::Vector2f pos);
 		void DrawAllCrystals(sf::RenderWindow* window);
 		int GetCrystalNumber();
+		int GetBombNumber();
 		void CreateBomb();
 
 		static inline LLGP::Event<Crystal*> OnSpawnedCrystal;
 		static inline LLGP::Event<Crystal*> OnCollectedCrystal;
+		static inline LLGP::Event<> OnMadeBomb;
 
 	private:
 		std::vector<Crystal*> allCrystals;

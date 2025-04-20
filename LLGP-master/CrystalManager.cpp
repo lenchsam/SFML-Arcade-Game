@@ -17,13 +17,18 @@ namespace LLGP {
 	}
 
 	void CrystalManager::CreateBomb() {
-		if (crystalsCollected >= crystalsForBomb) {
+		if (crystalsCollected > crystalsForBomb) {
 			numBombs++;
+			crystalsCollected = 0;
+			CrystalManager::OnMadeBomb();
 		}
 	}
 
 	int CrystalManager::GetCrystalNumber() {
 		return crystalsCollected;
+	}
+	int CrystalManager::GetBombNumber() {
+		return numBombs;
 	}
 
 	void CrystalManager::RegisterNewCrystal(Crystal* crystal) {
@@ -35,7 +40,10 @@ namespace LLGP {
 		crystal->SetActive(false);
 
 		Scoring::OnDeath(CRYSTAL);
-		std::cout << "updatedScoreEvent " << std::endl;
+
+		if (crystalsCollected >= 13) {
+			CreateBomb();
+		}
 
 		crystalsCollected++;
 	}

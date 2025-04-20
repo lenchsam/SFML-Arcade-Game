@@ -5,10 +5,10 @@
 
 namespace LLGP {
 	void MainMenuState::OnEnter(StateManager* manager) {
-		UI::AddText("Play", { 500.f, 500.f }, 30, sf::Color::White);
+		UI::AddText("Play", { 500.f, 500.f }, 30, sf::Color::White, true);
 		playButton = new Button(sf::FloatRect({ 475.f, 490.f }, { 50.f, 25.f }));
 		quitButton = new Button(sf::FloatRect({ 475.f, 550.f }, { 50.f, 25.f }));
-		UI::AddText("Quit", { 500.f, 560.f }, 30, sf::Color::White);
+		UI::AddText("Quit", { 500.f, 560.f }, 30, sf::Color::White, true);
 	}
 	void MainMenuState::OnExit() {
 		UI::ClearText();
