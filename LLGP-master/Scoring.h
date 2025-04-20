@@ -17,6 +17,9 @@ namespace LLGP {
 		Scoring();
 		void ResetScore();
 
+		void CheckScore();
+		std::vector<int> GetHighScores();
+
 		static inline LLGP::Event<ScoreGivers> OnDeath;
 	private:
 		std::map <ScoreGivers, int> scores = { {PLANETOID, 5}, {WORKER, 150}, {CRYSTAL, 200}, {WARRIOR, 500}, {SINISTARPIECE, 500}, {SINISTAR, 15000 }};

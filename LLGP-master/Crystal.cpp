@@ -36,7 +36,7 @@ namespace LLGP {
 
 		if (player) {
 			//if other object is the player
-			std::cout << "other is player - from crystal" << std::endl;
+			//std::cout << "other is player - from crystal" << std::endl;
 			Collected();
 
 		}

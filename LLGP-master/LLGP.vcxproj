@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationController.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="UUID.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationController.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="CircleCollider.h" />

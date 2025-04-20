@@ -56,8 +56,6 @@ namespace LLGP {
 		GetComponent<SpriteRenderer>()->GetSprite()->move(direction);
 	}
 	void Planetoid::DestroyThis(Spawner* spawner) {
-		std::cout << "Planetoid is destroyed" << std::endl;
-
 		// explode into crystals
 		SpawnCrystals();
 
@@ -69,7 +67,6 @@ namespace LLGP {
 	}
 	void Planetoid::SpawnCrystals() {
 		for (int i = 0; i <= m_crystals - 1; i++) {
-			std::cout << "crystal Spawned" << std::endl;
 			new Crystal(GetComponent<SpriteRenderer>()->GetSprite()->getPosition());
 		}
 	}

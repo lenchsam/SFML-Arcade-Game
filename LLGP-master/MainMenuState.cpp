@@ -8,7 +8,6 @@ namespace LLGP {
 		UI::AddText("Play", { 500.f, 500.f }, 30, sf::Color::White);
 		playButton = new Button(sf::FloatRect({ 475.f, 490.f }, { 50.f, 25.f }));
 		quitButton = new Button(sf::FloatRect({ 475.f, 550.f }, { 50.f, 25.f }));
-		//UI::AddText("OPTIONS", { 500.f, 530.f }, 30, sf::Color::White);
 		UI::AddText("Quit", { 500.f, 560.f }, 30, sf::Color::White);
 	}
 	void MainMenuState::OnExit() {
@@ -22,7 +21,11 @@ namespace LLGP {
 				stateManager->ChangeState(std::make_unique<GameplayState>(window));
 				return;
 			}
-			quitButton->ClickCheck(window);
+			if (quitButton->ClickCheck(window) == true) {
+				std::cout << "Clicked Quit Button\n";
+				window->close();
+				return;
+			}
 		}
 	}
 	void MainMenuState::Update(float deltaTime) {

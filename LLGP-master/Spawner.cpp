@@ -122,6 +122,5 @@ namespace LLGP {
 
     void Spawner::AddToDestroyedList(GameObject* enemyToDestroy) {
         DestroyedEnemies.push_back(enemyToDestroy);
-        std::cout << "put in destroyed enemy list" << std::endl;
     }
 }
