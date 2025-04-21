@@ -56,6 +56,8 @@ namespace LLGP{
 		spawner->RotateTowardsPlayer(player);
 	}
 	void GameplayState::Render(sf::RenderWindow* window) {
+
+		//----MAIN RENDERING----
 		window->setView(*view);
 
 		LLGP::SpriteRenderer::RenderSprite(window);
@@ -64,10 +66,21 @@ namespace LLGP{
 		spawner->DrawAllEnemies(window);
 		crystalManager->DrawAllCrystals(window);
 
-		//render UI Here
+		//----UI RENDERING----
 		window->setView(*UIView);
 
 		UI::RenderAllText(window);
+
+		//----MINIMAP RENDERING----
+		minimapView->setCenter(player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition());
+
+		sf::Vector2u windowSize = window->getSize();
+		sf::FloatRect viewportRect = minimapView->getViewport();
+
+        minimapBorder.setPosition(sf::Vector2f(windowSize.x * viewportRect.position.x, windowSize.y * viewportRect.position.y));
+		minimapBorder.setSize({ windowSize.x * viewportRect.size.x, windowSize.y * viewportRect.size.y });
+
+		window->draw(minimapBorder);
 		window->setView(*minimapView);
 
 		LLGP::SpriteRenderer::RenderSprite(window);

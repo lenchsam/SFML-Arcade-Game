@@ -16,12 +16,18 @@ namespace LLGP {
         GameplayState(sf::RenderWindow* _window) :
             window(_window)
         {
+            std::cout << "GameplayState constructed" << std::endl;
+
             view = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
             UIView = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
-            minimapView = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 2000.f, 2000.f }));
+            minimapView = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1500.f, 1500.f }));
             minimapView->setViewport(sf::FloatRect({ 0.75f, 0.75f }, { 0.25f, 0.25f })); // Keep viewport as is
 
-            std::cout << "GameplayState constructed" << std::endl;
+
+            minimapBorder.setFillColor(sf::Color::Transparent);
+            minimapBorder.setOutlineColor(sf::Color::Blue);
+            minimapBorder.setOutlineThickness(5.f);
+
         }
 
         ~GameplayState() override {
@@ -56,6 +62,8 @@ namespace LLGP {
         int crystalTextIndex;
 
         sf::Font font;
+
+        sf::RectangleShape minimapBorder;
     };
 
 }
