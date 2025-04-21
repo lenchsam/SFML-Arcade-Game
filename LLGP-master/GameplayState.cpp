@@ -9,7 +9,6 @@
 #include "UI.h"
 #include "Scoring.h"
 
-//TODO:: FIX when a new bomb is made, the crystal text doesnt go back to 0, it stays at 13 until another crystal is collected, then it goes to 0
 namespace LLGP{
 
 	void GameplayState::OnEnter(StateManager* manager) {
@@ -20,6 +19,8 @@ namespace LLGP{
 		player = new Player(view);
 		crystalManager = new CrystalManager();
 		spawner = new Spawner(player);
+
+		minimapView->setCenter(player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition());
 
 		if (!font.openFromFile("assets/CutePixel.ttf"))
 		{
@@ -56,6 +57,7 @@ namespace LLGP{
 	}
 	void GameplayState::Render(sf::RenderWindow* window) {
 		window->setView(*view);
+
 		LLGP::SpriteRenderer::RenderSprite(window);
 
 		spawner->Spawn(window);
@@ -66,6 +68,12 @@ namespace LLGP{
 		window->setView(*UIView);
 
 		UI::RenderAllText(window);
+		window->setView(*minimapView);
+
+		LLGP::SpriteRenderer::RenderSprite(window);
+		spawner->Spawn(window);
+		spawner->DrawAllEnemies(window);
+		crystalManager->DrawAllCrystals(window);
 
 		window->setView(*view);
 	}

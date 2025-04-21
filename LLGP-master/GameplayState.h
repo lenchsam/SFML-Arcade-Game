@@ -1,6 +1,7 @@
 #pragma once
 #include "IGameState.h"
 #include <SFML/Graphics.hpp>
+#include "SpriteRenderer.h"
 
 namespace LLGP {
     class StateManager;
@@ -17,6 +18,9 @@ namespace LLGP {
         {
             view = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
             UIView = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
+            minimapView = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 2000.f, 2000.f }));
+            minimapView->setViewport(sf::FloatRect({ 0.75f, 0.75f }, { 0.25f, 0.25f })); // Keep viewport as is
+
             std::cout << "GameplayState constructed" << std::endl;
         }
 
@@ -36,6 +40,7 @@ namespace LLGP {
         sf::RenderWindow* window;
 		sf::View* view;
         sf::View* UIView;
+        sf::View* minimapView;
 
         Player* player;
         Spawner* spawner;
