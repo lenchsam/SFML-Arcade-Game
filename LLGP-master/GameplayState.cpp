@@ -9,6 +9,7 @@
 #include "UI.h"
 #include "Scoring.h"
 
+//TODO:: FIX when a new bomb is made, the crystal text doesnt go back to 0, it stays at 13 until another crystal is collected, then it goes to 0
 namespace LLGP{
 
 	void GameplayState::OnEnter(StateManager* manager) {

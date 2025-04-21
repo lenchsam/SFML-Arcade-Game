@@ -24,7 +24,7 @@ namespace LLGP {
 		std::vector<Crystal*> allCrystals;
 
 		int crystalsCollected = 0;
-		int crystalsForBomb = 5;
+		int crystalsForBomb = 13;
 		int numBombs;
 	};
 }
