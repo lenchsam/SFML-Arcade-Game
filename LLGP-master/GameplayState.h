@@ -20,13 +20,17 @@ namespace LLGP {
 
             view = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
             UIView = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1000.f, 1000.f }));
-            minimapView = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 1500.f, 1500.f }));
-            minimapView->setViewport(sf::FloatRect({ 0.75f, 0.75f }, { 0.25f, 0.25f })); // Keep viewport as is
-
+            minimapView = new sf::View(sf::FloatRect({ 0.f, 0.f }, { 2000.f, 2000.f }));
+            minimapView->setViewport(sf::FloatRect({ 0.75f, 0.75f }, { 0.25f, 0.25f }));
 
             minimapBorder.setFillColor(sf::Color::Transparent);
             minimapBorder.setOutlineColor(sf::Color::Blue);
             minimapBorder.setOutlineThickness(5.f);
+
+
+            playerViewBorder.setFillColor(sf::Color::Transparent);
+            playerViewBorder.setOutlineColor(sf::Color::Blue);
+            playerViewBorder.setOutlineThickness(10.f);
 
         }
 
@@ -64,6 +68,7 @@ namespace LLGP {
         sf::Font font;
 
         sf::RectangleShape minimapBorder;
+        sf::RectangleShape playerViewBorder;
     };
 
 }

@@ -21,6 +21,7 @@ namespace LLGP{
 		spawner = new Spawner(player);
 
 		minimapView->setCenter(player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition());
+		playerViewBorder.setOrigin(player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition());
 
 		if (!font.openFromFile("assets/CutePixel.ttf"))
 		{
@@ -80,9 +81,17 @@ namespace LLGP{
         minimapBorder.setPosition(sf::Vector2f(windowSize.x * viewportRect.position.x, windowSize.y * viewportRect.position.y));
 		minimapBorder.setSize({ windowSize.x * viewportRect.size.x, windowSize.y * viewportRect.size.y });
 
+		playerViewBorder.setPosition(player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition());
+
+		playerViewBorder.setSize(sf::Vector2f(windowSize.x, windowSize.y));
+
+
+
 		window->draw(minimapBorder);
 		window->setView(*minimapView);
 
+		playerViewBorder.setPosition(player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition());
+		window->draw(playerViewBorder);
 		LLGP::SpriteRenderer::RenderSprite(window);
 		spawner->Spawn(window);
 		spawner->DrawAllEnemies(window);
