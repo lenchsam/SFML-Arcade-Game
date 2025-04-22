@@ -11,6 +11,7 @@ namespace LLGP {
 
 		void Input(Player* player);
 	private:
+		sf::Rect<float>* bounds;
 		float _speed = 2.f;
 		GameObject* _GameObject;
 
