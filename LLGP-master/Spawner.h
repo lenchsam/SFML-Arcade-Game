@@ -9,6 +9,7 @@ namespace LLGP{
     class GameObject;
     class Planetoid;
     class WarriorDrone;
+    class WorkerDrone;
     class Enemy;
     class Spawner: public GameObject
     {
@@ -33,7 +34,7 @@ namespace LLGP{
         T* CreateNewEnemy(std::string path);
         int spawnRadius = 1000;
         std::vector<WarriorDrone*> WarriorDrones;
-        std::vector<GameObject*> WorkerDrones;
+        std::vector<WorkerDrone*> WorkerDrones;
         std::vector<Planetoid*> Planetoids;
         std::vector<GameObject*> DestroyedEnemies;
         int m_maxWorkerDroneSpawned = 15;

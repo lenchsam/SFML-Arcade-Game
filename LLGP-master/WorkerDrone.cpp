@@ -1,19 +1,27 @@
-#include "WarriorDrone.h"
+#include "WorkerDrone.h"
 #include "Spawner.h"
 #include "Scoring.h"
+#include <iostream>
 
 namespace LLGP {
-	WarriorDrone::WarriorDrone() {
+	WorkerDrone::WorkerDrone() {
 		m_speed = 5.f;
 	}
-	WarriorDrone::~WarriorDrone() {
-
+	void WorkerDrone::Init() {
+		GetComponent<SpriteRenderer>()->GetSprite()->setColor(sf::Color::Blue);
 	}
-	void WarriorDrone::Init() {
-		GetComponent<SpriteRenderer>()->GetSprite()->setColor(sf::Color(128, 128, 128));
-	}
-	void WarriorDrone::GoToTarget(GameObject* player) {
+	void WorkerDrone::DestroyThis(Spawner* spawner) {
+		std::cout << "Worker Drone is destroyed" << std::endl;
+		spawner->DestroyWorkerDroneFromList(this);
 
+		Scoring::OnDeath(WORKER);
+
+		SetActive(false);
+	}
+
+	void WorkerDrone::GoToTarget(GameObject* player) {
+
+		//TODO:: Change this to be going towards crystals, then to sinstar boss. repeat
 		//get euclidian distance between two points
 		//if distance between drone and player is set distance
 		//if true stop
@@ -41,12 +49,4 @@ namespace LLGP {
 		}
 	}
 
-	void WarriorDrone::DestroyThis(Spawner* spawner) {
-		std::cout << "Warrior Drone is destroyed" << std::endl;
-		spawner->DestroyWarriorDroneFromList(this);
-
-		Scoring::OnDeath(WARRIOR);
-
-		SetActive(false);
-	}
 }

@@ -8,7 +8,7 @@ namespace LLGP {
 		spriteRenderer->LoadTexture("assets/sprites/BULLET.png");
 		spriteRenderer->GetSprite()->setScale({2.f, 2.f});
 
-		m_Speed = 5.f;
+		m_Speed = 10.f;
 		m_Damage = 5.f;
 	}
 	void Bullet::Fire(GameObject* player, sf::RenderWindow* window) {

@@ -4,6 +4,7 @@
 #include "Physics.h"
 #include "Planetoid.h"
 #include "WarriorDrone.h"
+#include "WorkerDrone.h"
 #include "SpriteRenderer.h"
 using namespace std;
 namespace LLGP {
@@ -27,6 +28,9 @@ namespace LLGP {
         for (auto enemy : WarriorDrones) {
             enemy->RotateTowardsPlayer(player);
         }
+		for (auto enemy : WorkerDrones) {
+			enemy->RotateTowardsPlayer(player);
+		}
     }
     void Spawner::Spawn(sf::RenderWindow* window) {
         SpawnWorkerDrones();
@@ -38,9 +42,9 @@ namespace LLGP {
         for (auto enemy : WarriorDrones) {
             enemy->GoToTarget(_player);
         }
-        //for (auto enemy : WorkerDrones) {
-        //    enemy->GoToTarget(_player);
-        //}
+        for (auto enemy : WorkerDrones) {
+            enemy->GoToTarget(_player);
+        }
     }
 
     void Spawner::DrawAllEnemies(sf::RenderWindow* window) {
@@ -98,6 +102,11 @@ namespace LLGP {
         if (WorkerDrones.size() >= m_maxWorkerDroneSpawned) {
             return;
         }
+        WorkerDrone* enemy = CreateNewEnemy<WorkerDrone>("assets/sprites/PLAYER.png");
+
+        enemy->GetComponent<SpriteRenderer>()->GetSprite()->setPosition(GetRandomPosition());
+
+        WorkerDrones.push_back(enemy);
     }
     void Spawner::SpawnWarriorDrones() {
         if (WarriorDrones.size() >= m_maxWarriorDroneSpawned) {

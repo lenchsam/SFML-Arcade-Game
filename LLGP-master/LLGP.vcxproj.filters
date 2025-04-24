@@ -159,6 +159,9 @@
     <ClCompile Include="AnimationController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WorkerDrone.cpp">
+      <Filter>Source Files\Objects\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="packages\SFML\include\SFML\Audio.hpp">
@@ -559,6 +562,9 @@
     </ClInclude>
     <ClInclude Include="AnimationController.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkerDrone.h">
+      <Filter>Header Files\Objects\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
