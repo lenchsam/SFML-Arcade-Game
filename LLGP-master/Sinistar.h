@@ -16,6 +16,11 @@ namespace LLGP {
     private:
         sf::Vector2f m_target;
         std::vector<sf::Vector2f> targetPositions;
+
+        bool isDashing = false;
+        bool justDashed = false;
+        float m_dashSpeedMultiplier = 2.f;
+        float m_waitTimeAfterDash = 0.5f;
     };
 }
 

@@ -19,7 +19,10 @@ namespace LLGP {
 	}
 	sf::Vector2f Sinistar::ChooseTarget(sf::Vector2f playerPosition) {
 		if (m_target != targetPositions.back()) { return m_target; }
+		//runs if sinstar has gone through all positions
+
 		//get set positions around player position
 		//save them positions to a vector
+		//current target = first element in vector
 	}
 }

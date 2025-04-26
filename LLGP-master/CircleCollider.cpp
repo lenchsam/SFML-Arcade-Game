@@ -5,7 +5,6 @@ namespace LLGP {
 
 	CircleCollider::CircleCollider(GameObject* owner) : m_Radius(10.f), _GameObject(owner) {
 		Physics::AddCollider(this);
-		
 	};
 	void CircleCollider::SetRadius(float radius) {
 		m_Radius = radius;

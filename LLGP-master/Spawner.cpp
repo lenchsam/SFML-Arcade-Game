@@ -6,6 +6,8 @@
 #include "WarriorDrone.h"
 #include "WorkerDrone.h"
 #include "SpriteRenderer.h"
+#include "Sinistar.h"
+
 using namespace std;
 namespace LLGP {
     Spawner::Spawner(GameObject* player) {

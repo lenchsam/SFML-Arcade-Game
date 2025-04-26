@@ -8,6 +8,7 @@ namespace LLGP {
     class Player;
     class CrystalManager;
     class Spawner;
+    class Sinistar;
 
     class GameplayState :
         public IGameState
@@ -69,6 +70,8 @@ namespace LLGP {
 
         sf::RectangleShape minimapBorder;
         sf::RectangleShape playerViewBorder;
+
+        Sinistar* sinistar;
     };
 
 }
