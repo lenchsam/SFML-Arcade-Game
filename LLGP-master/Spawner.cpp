@@ -25,10 +25,10 @@ namespace LLGP {
         return enemy;
     }
     void Spawner::RotateTowardsPlayer(GameObject* player) {
-        for (auto enemy : WarriorDrones) {
+        for (WarriorDrone* enemy : WarriorDrones) {
             enemy->RotateTowardsPlayer(player);
         }
-		for (auto enemy : WorkerDrones) {
+		for (WorkerDrone* enemy : WorkerDrones) {
 			enemy->RotateTowardsPlayer(player);
 		}
     }
@@ -39,28 +39,28 @@ namespace LLGP {
     }
     
     void Spawner::MoveAllEnemies() {
-        for (auto enemy : WarriorDrones) {
+        for (WarriorDrone* enemy : WarriorDrones) {
             enemy->GoToTarget(_player);
         }
-        for (auto enemy : WorkerDrones) {
+        for (WorkerDrone* enemy : WorkerDrones) {
             enemy->GoToTarget(_player);
         }
     }
 
     void Spawner::DrawAllEnemies(sf::RenderWindow* window) {
-        for (auto warrior : WarriorDrones) {
+        for (WarriorDrone* warrior : WarriorDrones) {
             warrior->GetComponent<SpriteRenderer>()->Draw(window);
         }
-        for (auto worker : WorkerDrones) {
+        for (WorkerDrone* worker : WorkerDrones) {
             worker->GetComponent<SpriteRenderer>()->Draw(window);
         }
-        for (auto planetoid : Planetoids) {
+        for (Planetoid* planetoid : Planetoids) {
             planetoid->GetComponent<SpriteRenderer>()->Draw(window);
         }
     }
 
     void Spawner::DestroyAllNeccessary() {
-        for (auto enemy : DestroyedEnemies) {
+        for (GameObject* enemy : DestroyedEnemies) {
             enemy->DestroyThis(this);
         }
         DestroyedEnemies.clear();

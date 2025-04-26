@@ -19,15 +19,18 @@ namespace LLGP{
         void DrawAllEnemies(sf::RenderWindow* window);
         void MoveAllEnemies();
         void RotateTowardsPlayer(GameObject* player);
+
         void DestroyWarriorDroneFromList(GameObject* enemy);
         void DestroyWorkerDroneFromList(GameObject* enemy);
         void DestroyPlanetoidFromList(GameObject* enemy);
     private:
         void AddToDestroyedList(GameObject* enemyToDestroy);
         void DestroyAllNeccessary();
+
         void SpawnWorkerDrones();
         void SpawnWarriorDrones();
         void SpawnPlanetoids();
+
         GameObject* _player;
         sf::Vector2f GetRandomPosition();
         template <typename T>

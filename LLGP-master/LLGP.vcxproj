@@ -150,6 +150,7 @@
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Planetoid.cpp" />
     <ClCompile Include="Scoring.cpp" />
+    <ClCompile Include="Sinistar.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="WarriorDrone.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Planetoid.h" />
     <ClInclude Include="Scoring.h" />
+    <ClInclude Include="Sinistar.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="WarriorDrone.h" />

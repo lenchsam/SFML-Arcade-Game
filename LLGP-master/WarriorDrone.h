@@ -12,10 +12,10 @@ namespace LLGP {
         void Init() override;
 
         void DestroyThis(Spawner* spawner) override;
-        void GoToTarget(GameObject* player) override;
+        void GoToTarget(GameObject* player, sf::Vector2f target = { 0, 0 }) override;
     private:
-        float minDistnaceFromPlayer = 50.f;
-        sf::Vector2f target;
+        float m_minDistnaceFromPlayer = 50.f;
+        sf::Vector2f m_target;
     };
 }
 

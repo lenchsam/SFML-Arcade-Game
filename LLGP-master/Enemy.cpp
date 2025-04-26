@@ -15,17 +15,27 @@ namespace LLGP {
 	void Enemy::Draw(sf::RenderWindow* window) {
 		//spriteRenderer->Draw(window);
 	}
-	void Enemy::GoToTarget(GameObject* player) {
-		sf::Vector2f end = player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
+	void Enemy::GoToTarget(GameObject* /*player*/, sf::Vector2f target) {
 		sf::Vector2f start = GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
 
-		sf::Vector2f direction = end - start;
+		sf::Vector2f dist = { start.x - target.x, start.y - target.y };
 
-		direction = direction.normalized();
+		float distSquared = (dist.x * dist.x) + (dist.y * dist.y);
+		float distance = sqrt(distSquared);
 
-		direction *= m_speed;
+		if (distance <= m_minDistnaceFromPlayer) {
+			//enemy is the min distance from the player, will not move closer
+			//TODO: move in circle around the player
+		}
+		else {
+			sf::Vector2f direction = target - start;
 
-		GetComponent<SpriteRenderer>()->GetSprite()->move(direction);
+			direction = direction.normalized();
+
+			direction *= m_speed;
+
+			GetComponent<SpriteRenderer>()->GetSprite()->move(direction);
+		}
 	}
 
 	void Enemy::OnCollision(GameObject* other) {

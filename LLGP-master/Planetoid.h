@@ -14,7 +14,7 @@ namespace LLGP {
         void OnCollision(GameObject* other);
         void Init() override;
 
-        void GoToTarget(GameObject* player) override;
+        void GoToTarget(GameObject* player, sf::Vector2f target = { 0, 0 }) override;
 
         void DestroyThis(Spawner* spawner) override;
 

@@ -43,17 +43,8 @@ namespace LLGP {
 	void Planetoid::Init() {
 
 	}
-	void Planetoid::GoToTarget(GameObject* player){
-		sf::Vector2f end = player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
-		sf::Vector2f start = GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
-
-		sf::Vector2f direction = end - start;
-
-		direction = direction.normalized();
-
-		direction *= m_speed;
-
-		GetComponent<SpriteRenderer>()->GetSprite()->move(direction);
+	void Planetoid::GoToTarget(GameObject* player, sf::Vector2f target){
+		Enemy::GoToTarget(player, target);
 	}
 	void Planetoid::DestroyThis(Spawner* spawner) {
 		// explode into crystals
