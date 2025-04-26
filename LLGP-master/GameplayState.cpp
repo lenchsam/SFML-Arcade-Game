@@ -8,7 +8,6 @@
 #include "SpriteRenderer.h"
 #include "UI.h"
 #include "Scoring.h"
-#include "Sinistar.h"
 
 namespace LLGP{
 
@@ -21,10 +20,6 @@ namespace LLGP{
 		player = new Player(view);
 		crystalManager = new CrystalManager();
 		spawner = new Spawner(player);
-
-		sinistar = new Sinistar();
-		sinistar->spriteRenderer->LoadTexture("assets/SPRITES/HOUSE.png");
-		sinistar->Init();
 
 		minimapView->setCenter(player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition());
 		playerViewBorder.setOrigin(player->GetComponent<SpriteRenderer>()->GetSprite()->getPosition());
@@ -72,7 +67,7 @@ namespace LLGP{
 		spawner->Spawn(window);
 		spawner->DrawAllEnemies(window);
 		crystalManager->DrawAllCrystals(window);
-		window->draw(*sinistar->GetComponent<SpriteRenderer>()->GetSprite());
+		//window->draw(*sinistar->GetComponent<SpriteRenderer>()->GetSprite());
 
 		//----UI RENDERING----
 		window->setView(*UIView);

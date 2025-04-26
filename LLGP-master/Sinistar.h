@@ -10,12 +10,21 @@ namespace LLGP {
         void Init() override;
 
         void DestroyThis(Spawner* spawner) override;
-        void GoToTarget(GameObject* player, sf::Vector2f target) override;
+        void GoToTarget(GameObject* player, sf::Vector2f /*target*/ = {0, 0}) override;
         sf::Vector2f ChooseTarget(sf::Vector2f playerPosition);
 
     private:
         sf::Vector2f m_target;
         std::vector<sf::Vector2f> targetPositions;
+
+        int currentStarLocation;
+        std::vector<sf::Vector2f> starLocations = { {-190, 62}, {0, 200}, {190, 62}, {-59, 63}, {-190, 62}, {-190, 62} }; //used to get a star shape around the player.
+        //bottom left
+        //top
+        //bottom right
+        //top left
+        //top right
+        //bottom left
 
         bool isDashing = false;
         bool justDashed = false;

@@ -15,6 +15,10 @@ namespace LLGP {
         Physics::OnStepPhysics += std::bind(&Spawner::MoveAllEnemies, this);
         GameObject::OnWorldEndFrame += std::bind(&Spawner::DestroyAllNeccessary, this);
         Health::OnEnemyDeath += std::bind(&Spawner::AddToDestroyedList, this, std::placeholders::_1);
+
+        sinistar = new Sinistar();
+        sinistar->spriteRenderer->LoadTexture("assets/SPRITES/HOUSE.png");
+        sinistar->Init();
     }
 
     template <typename T>
@@ -47,6 +51,7 @@ namespace LLGP {
         for (WorkerDrone* enemy : WorkerDrones) {
             enemy->GoToTarget(_player);
         }
+        /////////////////////////////////////////////sinistar->GoToTarget(_player);
     }
 
     void Spawner::DrawAllEnemies(sf::RenderWindow* window) {
@@ -59,6 +64,8 @@ namespace LLGP {
         for (Planetoid* planetoid : Planetoids) {
             planetoid->GetComponent<SpriteRenderer>()->Draw(window);
         }
+
+        window->draw(*sinistar->GetComponent<SpriteRenderer>()->GetSprite());
     }
 
     void Spawner::DestroyAllNeccessary() {

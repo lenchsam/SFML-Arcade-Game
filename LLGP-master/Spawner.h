@@ -11,6 +11,7 @@ namespace LLGP{
     class WarriorDrone;
     class WorkerDrone;
     class Enemy;
+    class Sinistar;
     class Spawner: public GameObject
     {
     public:
@@ -43,6 +44,8 @@ namespace LLGP{
         int m_maxWorkerDroneSpawned = 15;
         int m_maxWarriorDroneSpawned = 4;
         int m_maxPlanetoidSpawned = 15;
+
+        Sinistar* sinistar;
     };
 }
 
