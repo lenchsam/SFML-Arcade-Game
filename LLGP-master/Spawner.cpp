@@ -51,7 +51,7 @@ namespace LLGP {
         for (WorkerDrone* enemy : WorkerDrones) {
             enemy->GoToTarget(_player);
         }
-        /////////////////////////////////////////////sinistar->GoToTarget(_player);
+        sinistar->GoToTarget(_player);
     }
 
     void Spawner::DrawAllEnemies(sf::RenderWindow* window) {

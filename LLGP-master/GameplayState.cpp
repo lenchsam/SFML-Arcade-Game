@@ -16,7 +16,6 @@ namespace LLGP{
 
 		//reset score
 
-
 		player = new Player(view);
 		crystalManager = new CrystalManager();
 		spawner = new Spawner(player);
@@ -67,7 +66,6 @@ namespace LLGP{
 		spawner->Spawn(window);
 		spawner->DrawAllEnemies(window);
 		crystalManager->DrawAllCrystals(window);
-		//window->draw(*sinistar->GetComponent<SpriteRenderer>()->GetSprite());
 
 		//----UI RENDERING----
 		window->setView(*UIView);

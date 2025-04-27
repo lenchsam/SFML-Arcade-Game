@@ -18,7 +18,7 @@ namespace LLGP {
         std::vector<sf::Vector2f> targetPositions;
 
         int currentStarLocation;
-        std::vector<sf::Vector2f> starLocations = { {-190, 62}, {0, 200}, {190, 62}, {-59, 63}, {-190, 62}, {-190, 62} }; //used to get a star shape around the player.
+        std::vector<sf::Vector2f> starLocations = { {-190, 62}, {0, -200}, {190, 62}, {-190, -63}, {190, -62}, {-190, 62} }; //used to get a star shape around the player.
         //bottom left
         //top
         //bottom right

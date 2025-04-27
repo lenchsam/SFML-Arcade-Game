@@ -1,4 +1,5 @@
 #include "Sinistar.h"
+#include "iostream"
 
 namespace LLGP {
 	Sinistar::Sinistar() {
@@ -20,20 +21,31 @@ namespace LLGP {
 		Enemy::GoToTarget(player, m_target);
 	}
 	sf::Vector2f Sinistar::ChooseTarget(sf::Vector2f playerPosition) {
-		//if sinistar is not at m_target return m_target
-		// else if m_target is not the last target in the positionsVector return next target
-		//get new positions based off of player position
-		//return first item in that array
-
-		//TODO:: make this work. issue is most likely to do with line 31, but not confirmed
 		//TODO: add multiple attack sequences for variety when fighting the boss
 		
-		if (spriteRenderer->GetSprite()->getPosition() != m_target) {
-			std::cout << "not yet reached the target position" << std::endl;
+		if (targetPositions.empty()) {
+			for (sf::Vector2f point : starLocations) {
+				targetPositions.push_back(playerPosition + point);
+			}
+
+			currentStarLocation = 0;
+			m_target = targetPositions[currentStarLocation];
 			return m_target;
 		}
-		else if(m_target != targetPositions.back()){
-			std::cout << "next target" << std::endl;
+		
+		//gets distance between target and current position
+		sf::Vector2f start = GetComponent<SpriteRenderer>()->GetSprite()->getPosition();
+
+		sf::Vector2f dist = { start.x - m_target.x, start.y - m_target.y };
+
+		float distSquared = (dist.x * dist.x) + (dist.y * dist.y);
+		float distance = sqrt(distSquared);
+
+		if (distance >= 2) {
+			//std::cout << "has not reached position" << std::endl;
+			return m_target;
+		}
+		else if(currentStarLocation != targetPositions.size() - 1){
 			currentStarLocation++;
 			return targetPositions[currentStarLocation];
 		}
@@ -46,6 +58,7 @@ namespace LLGP {
 		std::cout << "finished all in list" << std::endl;
 
 		currentStarLocation = 0;
-		return targetPositions[0];
+		m_target = targetPositions[0];
+		return m_target;
 	}
 }
