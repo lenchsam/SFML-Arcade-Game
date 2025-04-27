@@ -15,13 +15,17 @@ This project is intended to be a clone of the arcade game sinistar. I was tasked
 
 ## Features
 
- - Object oriented approach to making the arcade game sinistar in SFML.
+ - Object oriented approach to making the arcade game sinistar using SFML in C++20.
  - Full gameobject and component system with multiple components including sprite renderer, transform, health and more.
  - A State Machine
  - An Audio System
  - Collisions
  - Enemy Spawning
  - Resource Collection
+ - Minimap
+ - HighScore Saving
+ - Sinistar Boss
+ - UI
 
 ## Future Features
  - Crafting Bombs
