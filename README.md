@@ -24,15 +24,12 @@ This project is intended to be a clone of the arcade game sinistar. I was tasked
  - Resource Collection
 
 ## Future Features
-
- - UI
- - MiniMap
- - Scenes
  - Crafting Bombs
  - Sinistar Boss
- - Score/High Score
  - Updated Enemy AI
  - Add Worker Drone
+
+ - code optimisations. Mainly minimap, and to stop using sprite reference for positions and use transform component instead
 
 ## Getting Started
 ### Requirements
