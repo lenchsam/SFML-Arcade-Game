@@ -15,7 +15,7 @@ namespace LLGP {
 		AddComponent<PlayerCharacter>();
 		AddComponent<CircleCollider>();
 		playerHealth = AddComponent<Health>();
-		playerHealth->Init(100.f, 3);
+		playerHealth->Init(100.f, 3, {0.f, 0.f});
 		m_view = view;
 
 		Physics::OnStepPhysics += std::bind(&Player::MoveAllBullets, this);
@@ -27,6 +27,9 @@ namespace LLGP {
 	}
 	void Player::MoveCamera(sf::Vector2f movement) {
 		m_view->move(movement);
+	}
+	void Player::SetCameraPosition(sf::Vector2f newPosition) {
+		m_view->setCenter(newPosition);
 	}
 	void Player::Shoot(float deltaTime, sf::RenderWindow *window) {
 		m_time += deltaTime;

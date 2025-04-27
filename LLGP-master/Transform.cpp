@@ -1,6 +1,7 @@
 #include "Transform.h"
 #include "GameObject.h"
 #include <numbers>
+#include "PlayerCharacter.h"
 
 namespace LLGP {
 	Transform::Transform(GameObject* owner) {
@@ -17,6 +18,14 @@ namespace LLGP {
 		_GameObject->GetComponent<SpriteRenderer>()->GetSprite()->move(distance);
 
 		//std::cout << "m_Position" << std::endl;
+	}
+	void Transform::SetPosition(sf::Vector2f newPosition){
+		m_Position = newPosition;
+
+		SpriteRenderer* renderer = _GameObject->GetComponent<SpriteRenderer>();
+		if (renderer && renderer->GetSprite()) {
+			renderer->GetSprite()->setPosition(m_Position);
+		}
 	}
 	void Transform::RotateTowardsMouse(sf::RenderWindow* window) {
 		sf::Vector2i cursorPosition = sf::Mouse::getPosition(*window);

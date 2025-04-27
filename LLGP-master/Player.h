@@ -12,6 +12,7 @@ namespace LLGP {
         Player(sf::View* view);
         ~Player();
         void MoveCamera(sf::Vector2f movement);
+        void SetCameraPosition(sf::Vector2f newPosition);
         sf::View* m_view;
         void Shoot(float deltaTime, sf::RenderWindow* window);
 

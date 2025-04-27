@@ -9,7 +9,7 @@ namespace LLGP {
 	public:
 		Transform(GameObject* owner);
 
-		void SetPosition();
+		void SetPosition(sf::Vector2f newPosition);
 		sf::Vector2f GetPosition();
 		void ChangePosition(sf::Vector2f distance);
 		void RotateTowardsMouse(sf::RenderWindow* window);

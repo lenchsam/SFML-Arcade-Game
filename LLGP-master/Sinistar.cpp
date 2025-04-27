@@ -64,7 +64,7 @@ namespace LLGP {
 	void Sinistar::OnCollision(GameObject* other) {
 		if (other->CompareTag("Player")) {
 			std::cout << "Sinistar collided with player" << std::endl;
-			other->GetComponent<Health>()->DealDamage(99999999.f);
+			other->GetComponent<Health>()->DealDamage(10.f);
 		}
 	}
 }

@@ -8,11 +8,12 @@ LLGP::Health::Health(GameObject* owner) {
 	m_maxHealth = 100.f;
 }
 
-void LLGP::Health::Init(float maxHealth, int numOfLives) {
+void LLGP::Health::Init(float maxHealth, int numOfLives, sf::Vector2f spawnPoint) {
 	m_maxHealth = maxHealth;
 	m_health = maxHealth;
 	m_numOfLives = numOfLives;
 	isDestroyed = false;
+	m_spawnPoint = spawnPoint;
 }
 
 float LLGP::Health::GetHealth() {
@@ -28,6 +29,7 @@ void LLGP::Health::Die() {
 	if (m_numOfLives > 0) {
 		m_numOfLives--;
 		m_health = m_maxHealth;
+		_GameObject->transform->ChangePosition({ -_GameObject->GetComponent<SpriteRenderer>()->GetSprite()->getPosition().x,  -_GameObject->GetComponent<SpriteRenderer>()->GetSprite()->getPosition().y});
 		return;
 	}
 	isDestroyed = true;
