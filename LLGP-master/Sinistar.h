@@ -13,6 +13,8 @@ namespace LLGP {
         void GoToTarget(GameObject* player, sf::Vector2f /*target*/ = {0, 0}) override;
         sf::Vector2f ChooseTarget(sf::Vector2f playerPosition);
 
+        void OnCollision(GameObject* other) override;
+
     private:
         sf::Vector2f m_target;
         std::vector<sf::Vector2f> targetPositions;

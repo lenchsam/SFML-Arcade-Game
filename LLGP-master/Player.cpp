@@ -5,14 +5,17 @@
 #include "Physics.h"
 #include "SpriteRenderer.h"
 #include "MakeSound.h"
-
+#include "Health.h"
 
 namespace LLGP {
 	Player::Player(sf::View* view) {
+		SetTag("Player");
 		playerSpriteRenderer = AddComponent<LLGP::SpriteRenderer>();
 		playerSpriteRenderer->LoadTexture("assets/sprites/PLAYER.png");
 		AddComponent<PlayerCharacter>();
 		AddComponent<CircleCollider>();
+		playerHealth = AddComponent<Health>();
+		playerHealth->Init(100.f, 3);
 		m_view = view;
 
 		Physics::OnStepPhysics += std::bind(&Player::MoveAllBullets, this);

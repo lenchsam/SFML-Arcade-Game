@@ -61,4 +61,10 @@ namespace LLGP {
 		m_target = targetPositions[0];
 		return m_target;
 	}
+	void Sinistar::OnCollision(GameObject* other) {
+		if (other->CompareTag("Player")) {
+			std::cout << "Sinistar collided with player" << std::endl;
+			other->GetComponent<Health>()->DealDamage(99999999.f);
+		}
+	}
 }

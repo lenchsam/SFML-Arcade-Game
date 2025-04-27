@@ -4,6 +4,7 @@
 
 namespace LLGP {
     class Bullet;
+    class Health;
     class Player :
         public GameObject
     {
@@ -23,6 +24,7 @@ namespace LLGP {
         void DrawAllBullets(sf::RenderWindow* window);
         void DrawAll(sf::RenderWindow* window);
         SpriteRenderer* playerSpriteRenderer;
+		Health* playerHealth;
     };
 }
 
