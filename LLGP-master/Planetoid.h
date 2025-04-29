@@ -28,6 +28,9 @@ namespace LLGP {
         float m_MovementSpeed;
 
         int m_crystals = 5;
+
+        sf::Vector2f m_target;
+        float m_speed;
     };
 }
 

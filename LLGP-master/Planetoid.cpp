@@ -18,11 +18,6 @@ namespace LLGP {
 
 	}
 
-	//void Planetoid::Drawing(sf::RenderWindow* window) {
-	//	std::cout << "drawing planetoid" << std::endl;
-	//	spriteRenderer->Draw(window);
-	//}
-
 	void Planetoid::OnCollision(GameObject* other) {
 
 		Bullet* bullet = dynamic_cast<Bullet*>(other);
