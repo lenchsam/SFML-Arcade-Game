@@ -1,6 +1,7 @@
 #include "Health.h"
 #include "GameObject.h"
 #include "MakeSound.h"
+#include "Spawner.h"
 
 LLGP::Health::Health(GameObject* owner) {
 	_GameObject = owner;
@@ -30,6 +31,8 @@ void LLGP::Health::Die() {
 		m_numOfLives--;
 		m_health = m_maxHealth;
 		_GameObject->transform->ChangePosition({ -_GameObject->GetComponent<SpriteRenderer>()->GetSprite()->getPosition().x,  -_GameObject->GetComponent<SpriteRenderer>()->GetSprite()->getPosition().y});
+		
+		_GameObject->DestroyThis();
 		return;
 	}
 	isDestroyed = true;

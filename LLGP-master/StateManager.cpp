@@ -12,6 +12,7 @@ namespace LLGP {
     void StateManager::ChangeState(std::unique_ptr<IGameState> newState) {
         if (newState) {
             nextState = std::move(newState);
+            std::cout << "moved state\n";
         }
 
         //clean up current state
@@ -42,6 +43,7 @@ namespace LLGP {
 
     void StateManager::FixedUpdate() {
         if (currentState) {
+            
             currentState->FixedUpdate();
         }
     }

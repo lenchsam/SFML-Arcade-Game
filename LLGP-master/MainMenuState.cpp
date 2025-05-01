@@ -38,7 +38,7 @@ namespace LLGP {
 			if (playButton->ClickCheck(window) == true)
 			{
 				std::cout << "changed state\n";
-				stateManager->ChangeState(std::make_unique<GameplayState>(window));
+				stateManager->ChangeState(std::make_unique<GameplayState>(window, stateManager));
 				return;
 			}
 			if (quitButton->ClickCheck(window) == true) {

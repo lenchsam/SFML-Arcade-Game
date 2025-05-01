@@ -62,7 +62,8 @@ namespace LLGP {
 
 		virtual void OnCollision(GameObject* other);
 
-		virtual void DestroyThis(Spawner* spawner);
+		virtual void DestroyThis(Spawner* spawner = nullptr);
+
 
 		bool isDestroyed = false;
 	private:

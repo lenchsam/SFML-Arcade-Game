@@ -8,6 +8,7 @@
 #include "SpriteRenderer.h"
 #include "UI.h"
 #include "Scoring.h"
+#include "MainMenuState.h"
 
 namespace LLGP{
 
@@ -35,10 +36,17 @@ namespace LLGP{
 		CrystalManager::OnMadeBomb += std::bind(&GameplayState::UpdateBombText, this);
 		CrystalManager::OnCollectedCrystal += std::bind(&GameplayState::UpdateCrystalText, this);
 		Scoring::ScoreChanged += std::bind(&GameplayState::UpdateScoreText, this, std::placeholders::_1);
+		Player::PlayerDead += std::bind(&GameplayState::SwitchState, this);
+
+		switchingStates = false;
 
 	}
 	void GameplayState::OnExit() {
 		std::cout << "Exiting Gameplay State" << std::endl;
+
+		UI::ClearText();
+
+
 
 		//unload scene
 	}
@@ -50,9 +58,8 @@ namespace LLGP{
 	}
 	void GameplayState::FixedUpdate() {
 		LLGP::Physics::StepPhysics();
-
 		LLGP::Physics::CheckCollisions();
-
+		if (switchingStates) { return; }
 		player->transform->RotateTowardsMouse(window);
 		spawner->RotateTowardsPlayer(player);
 	}
@@ -114,5 +121,10 @@ namespace LLGP{
 		std::stringstream ss;
 		ss << "Crystals Collected: " << crystalManager->GetCrystalNumber();
 		UI::UpdateText(crystalTextIndex, ss.str());
+	}
+
+	void GameplayState::SwitchState() {
+		stateManager->ChangeState(std::make_unique<MainMenuState>(window, stateManager));
+		switchingStates = true;
 	}
 }

@@ -15,7 +15,7 @@ namespace LLGP {
 		AddComponent<PlayerCharacter>();
 		AddComponent<CircleCollider>();
 		playerHealth = AddComponent<Health>();
-		playerHealth->Init(100.f, 3, {0.f, 0.f});
+		playerHealth->Init(100.f, 2, {0.f, 0.f});
 		m_view = view;
 
 		Physics::OnStepPhysics += std::bind(&Player::MoveAllBullets, this);
@@ -24,6 +24,8 @@ namespace LLGP {
 	}
 	Player::~Player() {
 		delete m_view;
+		delete playerSpriteRenderer;
+		delete playerHealth;
 	}
 	void Player::MoveCamera(sf::Vector2f movement) {
 		m_view->move(movement);
@@ -49,7 +51,6 @@ namespace LLGP {
 	}
 
 	void Player::DrawAllBullets(sf::RenderWindow* window) {
-		//std::cout << "draw bullets" << std::endl;
 		for (auto bullet : _Bullets) {
 			bullet->GetComponent<SpriteRenderer>()->Draw(window);
 		}
@@ -64,5 +65,9 @@ namespace LLGP {
 		for (auto bullet : _Bullets) {
 			bullet->MoveBullet();
 		}
+	}
+	void Player::DestroyThis(Spawner* spawnerd) {
+		PlayerDead();
+		std::cout << "DEEEEDDDDD\n";
 	}
 }

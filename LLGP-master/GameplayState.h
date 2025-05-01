@@ -2,6 +2,7 @@
 #include "IGameState.h"
 #include <SFML/Graphics.hpp>
 #include "SpriteRenderer.h"
+#include "StateManager.h"
 
 namespace LLGP {
     class StateManager;
@@ -13,8 +14,9 @@ namespace LLGP {
         public IGameState
     {
     public:
-        GameplayState(sf::RenderWindow* _window) :
-            window(_window)
+        GameplayState(sf::RenderWindow* _window, StateManager* _stateManager) :
+            window(_window),
+            stateManager(_stateManager)
         {
             std::cout << "GameplayState constructed" << std::endl;
 
@@ -51,10 +53,14 @@ namespace LLGP {
 		sf::View* view;
         sf::View* UIView;
         sf::View* minimapView;
+        StateManager* stateManager;
 
         Player* player;
         Spawner* spawner;
         CrystalManager* crystalManager;
+
+        void SwitchState();
+        bool switchingStates = false;
 
 		void UpdateScoreText(int currentScore);
 		void UpdateBombText();

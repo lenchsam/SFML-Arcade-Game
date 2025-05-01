@@ -17,6 +17,10 @@ namespace LLGP {
         void Shoot(float deltaTime, sf::RenderWindow* window);
 
         void MoveAllBullets();
+
+        void DestroyThis(Spawner* spawner = nullptr) override;
+
+        static inline LLGP::Event<> PlayerDead;
     private:
         std::vector<Bullet*> _Bullets;
         float m_shootingSpeed = 0.5f;
